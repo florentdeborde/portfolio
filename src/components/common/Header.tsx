@@ -68,20 +68,20 @@ export const Header = () => {
                             aria-label="Toggle Language Menu"
                         >
                             <Languages size={18} className={styles.langIcon} />
-                            <span className={styles.langText}>{i18n.language === 'fr' ? 'FR' : 'EN'}</span>
+                            <span className={styles.langText}>{i18n.resolvedLanguage?.startsWith('fr') ? 'FR' : 'EN'}</span>
                             <ChevronDown size={14} className={`${styles.langArrow} ${isLangOpen ? styles.rotate : ''}`} />
                         </button>
 
                         {isLangOpen && (
                             <div className={styles.langDropdown}>
                                 <button
-                                    className={`${styles.langOption} ${i18n.language === 'fr' ? styles.active : ''}`}
+                                    className={`${styles.langOption} ${i18n.resolvedLanguage?.startsWith('fr') ? styles.active : ''}`}
                                     onClick={() => changeLang('fr')}
                                 >
                                     Français
                                 </button>
                                 <button
-                                    className={`${styles.langOption} ${i18n.language === 'en' ? styles.active : ''}`}
+                                    className={`${styles.langOption} ${i18n.resolvedLanguage?.startsWith('en') ? styles.active : ''}`}
                                     onClick={() => changeLang('en')}
                                 >
                                     English
@@ -135,20 +135,20 @@ export const Header = () => {
                                 aria-label="Toggle Language Menu"
                             >
                                 <Languages size={18} className={styles.langIcon} />
-                                <span className={styles.langText}>{i18n.language === 'fr' ? 'FR' : 'EN'}</span>
+                                <span className={styles.langText}>{i18n.resolvedLanguage?.startsWith('fr') ? 'FR' : 'EN'}</span>
                                 <ChevronDown size={14} className={`${styles.langArrow} ${isLangOpen ? styles.rotate : ''}`} />
                             </button>
 
                             {isLangOpen && (
                                 <div className={`${styles.langDropdown} ${styles.mobile}`}>
                                     <button
-                                        className={`${styles.langOption} ${i18n.language === 'fr' ? styles.active : ''}`}
+                                        className={`${styles.langOption} ${i18n.resolvedLanguage?.startsWith('fr') ? styles.active : ''}`}
                                         onClick={() => changeLang('fr')}
                                     >
                                         Français
                                     </button>
                                     <button
-                                        className={`${styles.langOption} ${i18n.language === 'en' ? styles.active : ''}`}
+                                        className={`${styles.langOption} ${i18n.resolvedLanguage?.startsWith('en') ? styles.active : ''}`}
                                         onClick={() => changeLang('en')}
                                     >
                                         English
