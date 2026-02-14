@@ -11,6 +11,7 @@ A modern, multilingual personal portfolio built with React, Vite, and Lucide Rea
 
 - [🎯 Features](#-features)
 - [💻 Installation](#-installation)
+- [🔧 Environment Configuration](#-environment-configuration)
 - [📂 Project Structure](#️-project-structure)
 - [🪄 Customization Guide](#-customization-guide)
 - [🚢 Deployment](#-deployment)
@@ -42,6 +43,21 @@ A modern, multilingual personal portfolio built with React, Vite, and Lucide Rea
    npm run dev
    ```
 The site will be available at http://localhost:5173
+
+## 🔧 Environment Configuration
+
+The portfolio is built with Vite, so all variables must be prefixed with `VITE_` to be exposed to the frontend. Create a `.env` file at the root of the project with the following:
+
+| Variable                  | Requirement         | Description                                                               |
+|:--------------------------|:--------------------|:--------------------------------------------------------------------------|
+| `VITE_MAYLEO_ENABLED`     | `true` \| `false`   | Master toggle to enable or disable the Mayleo integration.                |
+| `VITE_MAYLEO_API_KEY`     | `UUID`              | The unique identification key assigned to this portfolio.                 |
+| `VITE_MAYLEO_HMAC_SECRET` | `String (32 chars)` | The secret key used to compute the HMAC-SHA256 request signature.         |
+| `VITE_MAYLEO_URL`         | `URL`               | The base URL of your hosted Mayleo Email Gateway instance.                |
+| `VITE_SITE_URL`           | `URL`               | The public URL of this portfolio (used for the `Origin` security header). |
+
+> [!TIP]
+> Ensure that `VITE_SITE_URL` matches exactly the domain whitelisted in your Mayleo database to prevent **Domain Shield** rejections.
 
 ## 📂 Project Structure
 
