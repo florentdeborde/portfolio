@@ -4,7 +4,7 @@ import { TFunction } from 'i18next';
 import { GithubIcon, ExternalLinkIcon } from '@/components/common/BrandIcons';
 import { PageLayout } from '@/components/common/PageLayout';
 import { parameters } from '@/config/parameters';
-import { Tabs } from '@/components/common/Tabs';
+import { Tabs, TabItem } from '@/components/common/Tabs';
 import { GithubReadme } from '@/components/projects/GithubReadme';
 import { ProjectStatus } from '@/components/projects/ProjectStatus';
 import { ProjectLinkButton } from '@/components/projects/ProjectLinkButton';
@@ -37,7 +37,7 @@ export const ProjectDetails = () => {
     // or refactor it into the generic structure.
     // For now, let's use the generic structure for everything except the 'demo' tab content.
 
-    const tabItems = [
+    const tabItems: TabItem[] = [
         {
             id: 'overview',
             label: t('tabs.overview'),
@@ -49,6 +49,7 @@ export const ProjectDetails = () => {
         tabItems.push({
             id: 'github',
             label: 'GitHub',
+            icon: <GithubIcon size={18} />,
             content: <GithubReadme
                 repoRawUrl={project.rawReadme}
                 loadingText={t('projects.github-readme.loading')}
