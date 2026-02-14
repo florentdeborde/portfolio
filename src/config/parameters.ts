@@ -6,6 +6,22 @@ export const parameters = {
     github: "https://github.com/florentdeborde",
     linkedin: "https://www.linkedin.com/in/florent-deborde-32ba9812a/",
     email: "florentdeborde.projects@gmail.com",
+    techStack: {
+        backend: [
+            { name: 'Java 17', class: 'java' },
+            { name: 'Spring Boot 3', class: 'core-spring' },
+            { name: 'SQL', class: 'data-infra' },
+            { name: 'Docker', class: 'data-infra' },
+            { name: 'ShedLock', class: 'utils' },
+        ],
+        frontend: [
+            { name: 'React 19', class: 'core-react' },
+            { name: 'Vite 7', class: 'core-react' },
+            { name: 'JavaScript', class: 'ts-js' },
+            { name: 'TypeScript', class: 'ts-js' },
+            { name: 'i18n', class: 'utils' },
+        ],
+    },
 
     projects: [
         {

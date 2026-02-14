@@ -12,21 +12,8 @@ import styles from './Home.module.css';
 export const Home = () => {
     const { t } = useTranslation();
 
-    const backendTechs = [
-        { name: 'Java 17', class: 'java' },
-        { name: 'Spring Boot 3', class: 'core-spring' },
-        { name: 'SQL', class: 'data-infra' },
-        { name: 'Docker', class: 'data-infra' },
-        { name: 'ShedLock', class: 'utils' },
-    ];
-
-    const frontendTechs = [
-        { name: 'React 19', class: 'core-react' },
-        { name: 'Vite 7', class: 'core-react' },
-        { name: 'JavaScript', class: 'ts-js' },
-        { name: 'TypeScript', class: 'ts-js' },
-        { name: 'i18n', class: 'utils' },
-    ];
+    const backendTechs = parameters.techStack.backend;
+    const frontendTechs = parameters.techStack.frontend;
 
     return (
         <PageLayout seo={{
