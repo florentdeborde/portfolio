@@ -76,6 +76,9 @@ export async function sendEmail(emailData: EmailData) {
     const signature = await computeSignature(payload, hmacSecret);
     const idempotencyKey = crypto.randomUUID();
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     try {
         const response = await fetch(gatewayUrl, {
             method: 'POST',
@@ -86,8 +89,11 @@ export async function sendEmail(emailData: EmailData) {
                 'X-SIGNATURE': signature,
                 'X-Idempotency-Key': idempotencyKey,
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: controller.signal
         });
+
+        clearTimeout(timeoutId);
 
         if (!response.ok) {
             if (response.status >= 400 && response.status < 500) {
