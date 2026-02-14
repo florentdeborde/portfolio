@@ -1,0 +1,137 @@
+/* Toast Notification */
+.toastContainer {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+}
+
+.toastNotification {
+    pointer-events: auto;
+    min-width: 320px;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: toastSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toastNotification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.toastNotification.error {
+    border-left: 4px solid var(--error-color);
+}
+
+.toastContent {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toastIcon {
+    flex-shrink: 0;
+}
+
+.success .toastIcon {
+    color: var(--success-color);
+}
+
+.error .toastIcon {
+    color: var(--error-color);
+}
+
+.toastMessage {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+}
+
+.toastClose {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.toastClose:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.toastProgress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    transform-origin: left;
+    animation: toastProgressLinear linear forwards;
+}
+
+.success .toastProgress {
+    background: var(--success-color);
+    opacity: 0.3;
+}
+
+.error .toastProgress {
+    background: var(--error-color);
+    opacity: 0.3;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastProgressLinear {
+    from {
+        transform: scaleX(1);
+    }
+
+    to {
+        transform: scaleX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .toastContainer {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+    }
+
+    .toastNotification {
+        min-width: 0;
+        width: 100%;
+    }
+}

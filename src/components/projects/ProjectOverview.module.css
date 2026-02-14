@@ -1,0 +1,17 @@
+.overviewGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.overviewList li {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.cardDesc {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin-top: 1rem;
+}

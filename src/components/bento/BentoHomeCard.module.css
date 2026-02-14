@@ -1,0 +1,137 @@
+/* Card General Styling */
+.bentoHomeCard {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.bentoHomeCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-border-hover);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.bentoHomeCardContent {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bentoHomeCard h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 0.75rem 0;
+    color: var(--text-primary);
+}
+
+.bentoHomeCard p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+/* Gradients */
+.bentoHomeCardBgGradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    filter: blur(80px);
+    opacity: 0.15;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gradientBlue {
+    background: radial-gradient(circle, #3b82f6, transparent);
+    top: -100px;
+    right: -100px;
+}
+
+.gradientPurple {
+    background: radial-gradient(circle, #8b5cf6, transparent);
+    bottom: -100px;
+    left: -100px;
+    top: auto;
+    right: auto;
+}
+
+/* Links & Buttons */
+.bentoHomeCardLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-top: auto;
+    transition: all 0.2s ease;
+}
+
+/* Hover on the link itself */
+.bentoHomeCardLink:hover {
+    gap: 0.75rem;
+    color: var(--accent-primary);
+}
+
+/* Hover on the parent card triggers the link hover effect */
+.bentoHomeCard:hover .bentoHomeCardLink {
+    gap: 0.75rem;
+    color: var(--accent-primary);
+}
+
+.bentoHomeCardLinkSm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bentoHomeCardLinkSm:hover {
+    color: var(--accent-primary);
+}
+
+.bentoHomeCard:hover .bentoHomeCardLinkSm {
+    color: var(--accent-primary);
+}
+
+/* Clickable card state */
+.bentoHomeCard.clickable {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+}
+
+/* Header Row (Icon + Badge) */
+.bentoHomeCardHeaderRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.bentoHomeCardHeaderRow .bentoHeader {
+    margin-bottom: 1rem;
+}
+
+.bentoHomeCardHeaderRow .bentoHomeCardBadgeContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}

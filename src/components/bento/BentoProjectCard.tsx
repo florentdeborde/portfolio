@@ -1,0 +1,141 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { Play } from 'lucide-react';
+import { GithubIcon, ExternalLinkIcon } from '@/components/common/BrandIcons';
+import { ProjectStatus, ProjectStatusType } from '@/components/projects/ProjectStatus';
+import { BentoCard } from './BentoCard';
+import styles from './BentoProjectCard.module.css';
+
+export interface Project {
+    id: 'mayleo-email-gateway' | 'fertenergie' | 'energeticienne' | 'saas-app';
+    category: 'microservice' | 'wellness_blog' | 'citizen_blog' | 'full_stack_app';
+    size: 'large' | 'wide' | 'full' | 'large-full' | 'normal';
+    icon: React.ElementType;
+    color: string;
+    status?: ProjectStatusType;
+    tech: ('react' | 'spring_boot' | 'mysql' | 'postgresql' | 'css' | 'vite' | 'cra' | 'smtp')[];
+    internalLink?: string;
+    github?: string;
+    githubBackend?: string;
+    githubFrontend?: string;
+    external?: string;
+    demoLink?: string;
+}
+
+interface BentoProjectCardProps {
+    project: Project;
+}
+
+export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
+    const { t } = useTranslation();
+    const Icon = project.icon;
+
+    const content = (
+        <>
+            <div className={`card-blob ${project.color}`} />
+
+            <div className="flex flex-col h-full">
+                {project.status && (
+                    <ProjectStatus
+                        status={project.status}
+                        variant="absolute"
+                    />
+                )}
+
+                <div className={styles.bentoProjectCardFooter}>
+                    <div className={styles.bentoProjectCardTags}>
+                        {project.tech.map(tag => (
+                            <span key={tag} className={styles.bentoProjectCardTag}>
+                                {t(`projects.tech.${tag}`)}
+                            </span>
+                        ))}
+                    </div>
+
+                    <div className={styles.bentoProjectCardLinks} onClick={(e) => e.stopPropagation()} role="presentation">
+                        {project.github && !project.githubFrontend && !project.githubBackend && (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.bentoProjectCardLink}
+                                title={t('projects.links.github')}
+                                aria-label={t('projects.links.github')}
+                            >
+                                <GithubIcon size={18} />
+                            </a>
+                        )}
+                        {project.githubBackend && (
+                            <a
+                                href={project.githubBackend}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.bentoProjectCardLink}
+                                title={t('projects.links.githubBackend')}
+                                aria-label={t('projects.links.githubBackend')}
+                            >
+                                <div className={styles.bentoProjectCardLinkIconStack}>
+                                    <GithubIcon size={18} />
+                                    <span className={styles.bentoProjectCardLinkLabel}>BE</span>
+                                </div>
+                            </a>
+                        )}
+                        {project.githubFrontend && (
+                            <a
+                                href={project.githubFrontend}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.bentoProjectCardLink}
+                                title={t('projects.links.githubFrontend')}
+                                aria-label={t('projects.links.githubFrontend')}
+                            >
+                                <div className={styles.bentoProjectCardLinkIconStack}>
+                                    <GithubIcon size={18} />
+                                    <span className={styles.bentoProjectCardLinkLabel}>FE</span>
+                                </div>
+                            </a>
+                        )}
+                        {project.external && (
+                            <a
+                                href={project.external}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.bentoProjectCardLink}
+                                title={t('projects.links.external')}
+                                aria-label={t('projects.links.external')}
+                            >
+                                <ExternalLinkIcon size={18} />
+                            </a>
+                        )}
+                        {project.demoLink && (
+                            <Link
+                                to={project.demoLink}
+                                state={{ activeTab: 'demo' }}
+                                className={styles.bentoProjectCardLink}
+                                title={t('projects.links.tryIt')}
+                                aria-label={t('projects.links.tryIt')}
+                                style={{ color: 'var(--accent-primary)', borderColor: 'var(--accent-primary)', background: 'rgba(59, 130, 246, 0.1)' }}
+                            >
+                                <Play size={18} fill="currentColor" />
+                            </Link>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+
+    return (
+        <BentoCard
+            size={project.size}
+            to={project.internalLink}
+            className="block text-left" // Ensure text alignment for project cards
+            headerIcon={Icon}
+            headerTitle={t(`projects.items.${project.id}.title`)}
+            headerSubtitle={t(`projects.categories.${project.category}`)}
+            description={t(`projects.items.${project.id}.description`)}
+        >
+            {content}
+        </BentoCard>
+    );
+};

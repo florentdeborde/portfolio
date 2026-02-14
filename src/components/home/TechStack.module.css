@@ -1,0 +1,52 @@
+/* Tech Grid */
+.techGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.techItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    background: var(--glass-bg);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.techItem:hover {
+    border-color: var(--card-border-hover);
+    background: var(--bg-social-hover);
+}
+
+.techDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.techDot.react {
+    background-color: var(--color-react);
+}
+
+.techDot.java {
+    background-color: var(--color-java);
+}
+
+.techDot.spring {
+    background-color: var(--color-spring);
+}
+
+.techDot.vite {
+    background-color: var(--color-vite);
+}
+
+.techDot.sql {
+    background-color: var(--color-sql);
+}

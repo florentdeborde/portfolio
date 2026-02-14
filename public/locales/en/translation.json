@@ -1,0 +1,263 @@
+{
+    "nav": {
+        "home": "Home",
+        "projects": "Projects",
+        "about": "About",
+        "switchDark": "Switch to Dark Mode",
+        "switchLight": "Switch to Light Mode"
+    },
+    "home": {
+        "hero": {
+            "title": "Florent Deborde",
+            "subtitle": "Full-Stack Developer focused on building <1>robust</1> and <3>high-performance</3> applications. Ready to contribute to your next technical challenge.",
+            "status": "Available for work"
+        },
+        "projects": {
+            "title": "Projects",
+            "desc": "Explore a selection of my recent work highlighting my technical skills.",
+            "cta": "View Projects"
+        },
+        "about": {
+            "title": "About",
+            "desc": "Learn more about my background, my experience, and what drives my passion.",
+            "cta": "View About"
+        },
+        "latestProject": {
+            "title": "Latest Project",
+            "desc": "Check out my most recent work: Mayleo Email Gateway.",
+            "cta": "Explore"
+        },
+        "techStack": {
+            "title": "Tech Stack"
+        },
+        "contact": {
+            "title": "Get in touch"
+        }
+    },
+    "projects": {
+        "header": {
+            "title": "My Work",
+            "subtitle": "A selection of projects that define my technical journey."
+        },
+        "status": {
+            "inProgress": "In Progress",
+            "comingSoon": "Coming Soon",
+            "operational": "Operational",
+            "online": "Online",
+            "maintenance": "Maintenance"
+        },
+        "links": {
+            "github": "GitHub Repository",
+            "githubFrontend": "GitHub Frontend",
+            "githubBackend": "GitHub Backend",
+            "external": "Live Site",
+            "tryIt": "Try it"
+        },
+        "categories": {
+            "citizen_blog": "Citizen Collective Blog",
+            "full_stack_app": "Full Stack App",
+            "wellness_blog": "Wellness Blog",
+            "microservice": "Microservice"
+        },
+        "tech": {
+            "react": "React",
+            "spring_boot": "Spring Boot",
+            "mysql": "MySQL",
+            "postgresql": "PostgreSQL",
+            "css": "CSS",
+            "vite": "Vite",
+            "cra": "CRA",
+            "smtp": "SMTP"
+        },
+        "github-readme": {
+            "loading": "Loading documentation...",
+            "error": "Failed to load documentation from GitHub."
+        },
+        "items": {
+            "fertenergie": {
+                "title": "Ferténergie",
+                "description": "A modern React SPA for a citizen collective dedicated to renewable energy development.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture & Design",
+                        "content": "A modern Single Page Application (SPA) designed for a citizen collective. The project is structured to seamlessly showcase local photovoltaic installations and collective actions for renewable energy.",
+                        "siteStatus": {
+                            "label": "Site Status"
+                        }
+                    },
+                    "features": {
+                        "title": "Key Features",
+                        "list": [
+                            "Showcase of local photovoltaic installations",
+                            "Presentation of citizen collective actions",
+                            "Modern and responsive interface",
+                            "Full multi-language support (i18n)",
+                            "Optimized for static deployment"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Tech Stack",
+                        "content": "A modern stack prioritizing performance and maintainability.",
+                        "list": [
+                            "React 19",
+                            "Vite 7",
+                            "React Router 7",
+                            "Lucide React",
+                            "i18next"
+                        ]
+                    },
+                    "links": {
+                        "title": "Project Links"
+                    }
+                }
+            },
+            "energeticienne": {
+                "title": "Isabelle Deborde Energy Healing",
+                "title-short": "Energeticienne",
+                "description": "A professional wellness blog built with React for holistic practitioners.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture & Design",
+                        "content": "The site is designed as a modern professional showcase, emphasizing serenity and clarity. The architecture is based on a responsive Single Page Application.",
+                        "siteStatus": {
+                            "label": "Site Status"
+                        }
+                    },
+                    "features": {
+                        "title": "Features",
+                        "list": [
+                            "Presentation of treatments and services",
+                            "Seamless contact system",
+                            "SEO-friendly architecture",
+                            "Adaptive design for all devices"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Tech Stack",
+                        "content": "A lightweight and high-performance approach for a smooth user experience.",
+                        "list": [
+                            "React 19",
+                            "Vite 7",
+                            "React Router 7",
+                            "Framer Motion",
+                            "i18next"
+                        ]
+                    },
+                    "links": {
+                        "title": "Project Links"
+                    }
+                }
+            },
+            "saas-app": {
+                "title": "SaaS Platform",
+                "description": "A robust full-stack application with a React frontend and Spring Boot backend."
+            },
+            "mayleo-email-gateway": {
+                "title": "Mayleo Email Gateway",
+                "title-short": "Mayleo",
+                "description": "Secure multi-tenant email gateway (AES) for automated digital postcard delivery via a unified API.",
+                "overview": {
+                    "architecture": {
+                        "title": "System Design",
+                        "content": "A high-performance multi-tenant gateway with HMAC signing, AES-256 encryption, and strict per-domain isolation.",
+                        "apiStatus": {
+                            "label": "API Status"
+                        }
+                    },
+                    "features": {
+                        "title": "Key Capabilities",
+                        "list": [
+                            "Multi-Tenant & Isolation",
+                            "HMAC Signing & Domain Whitelisting",
+                            "AES-256 Encryption (Zero-Knowledge)",
+                            "Idempotency & Rate Limiting",
+                            "Async Queue & Self-Healing"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Tech Stack",
+                        "content": "Robust backend architecture focused on security and high availability.",
+                        "list": [
+                            "Java 17 & Spring Boot 3",
+                            "Spring Data JPA & Hibernate",
+                            "Jakarta Mail",
+                            "ShedLock (Distributed Lock)",
+                            "Caffeine Cache"
+                        ]
+                    },
+                    "links": {
+                        "title": "Project Links"
+                    }
+                },
+                "demo": {
+                    "photo": {
+                        "title": "1. Choose your photo",
+                        "postcards": {
+                            "postcard-0": "Mountain",
+                            "postcard-1": "Trees",
+                            "postcard-2": "City by the sea",
+                            "postcard-3": "Umbrellas",
+                            "postcard-4": "Bike against a yellow container",
+                            "postcard-5": "Beach"
+                        }
+                    },
+                    "form": {
+                        "title": "2. Write your message",
+                        "label-email": "Recipient Email",
+                        "email-disclaimer": "* Deliverability to certain addresses like Microsoft is restricted.",
+                        "placeholder-email": "recipient@example.com",
+                        "label-message": "Your Message",
+                        "placeholder-message": "Write something memorable...",
+                        "btn-send": "Send Postcard",
+                        "btn-sending": "Sending...",
+                        "success": "Email request registered successfully!",
+                        "error": "Error sending email.",
+                        "errors": {
+                            "MAYLEO_DISABLED": "Sending via Mayleo is currently disabled.",
+                            "MAYLEO_MISSING_CONFIG": "Portfolio configuration is incomplete (API keys missing).",
+                            "MAYLEO_INVALID_REQUEST": "Invalid parameters (missing email or message).",
+                            "MAYLEO_SERVICE_UNAVAILABLE": "Mayleo Gateway is currently unavailable.",
+                            "MAYLEO_UNKNOWN_ERROR": "An unknown error occurred."
+                        },
+                        "default-subject": "A postcard from Mayleo",
+                        "footer-note": "Sending via Mayleo Email Gateway API"
+                    }
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Full-Stack Expertise & Engineering Rigor",
+        "intro": {
+            "title": "My Journey",
+            "desc": "With a background in electrical engineering, I have always seen programming as a powerful tool for solving complex challenges.\n\nAfter a successful first chapter in the energy sector, I chose to turn my passion for development into my profession. \n\nMy journey has allowed me to master backend architectures before flourishing in full-stack roles, where I now combine a global vision with technical precision."
+        },
+        "international": {
+            "title": "International Profile",
+            "desc": "Native French and Spanish speaker, with professional English proficiency.\n\nBased between France and Spain."
+        },
+        "values": {
+            "title": "Beyond Code",
+            "desc": "Passionate about projects that challenge the status quo, I bring technical rigor to meaningful causes.\n\nFor me, developing is also about close collaboration to transform citizen-led ideas into high-performance, ethical, and useful digital tools."
+        }
+    },
+    "footer": {
+        "allRightsReserved": "All rights reserved.",
+        "builtWith": "Built with"
+    },
+    "error404": {
+        "title": "Page Not Found",
+        "subtitle": "Oops! It seems you are lost in cyberspace.",
+        "desc": "The page you are looking for doesn't exist or has been moved.",
+        "cta": "Back to Home"
+    },
+    "tabs": {
+        "readme": "ReadMe",
+        "demo": "Demo",
+        "overview": "Overview"
+    },
+    "a11y": {
+        "skipToContent": "Skip to content"
+    }
+}

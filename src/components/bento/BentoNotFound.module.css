@@ -1,0 +1,59 @@
+.bentoNotFoundContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 0 1rem;
+}
+
+.bentoNotFoundCard {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: 1.5rem;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.bentoNotFoundIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+}
+
+.bentoNotFoundCard h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: var(--font-weight-extrabold);
+    background: linear-gradient(to right, var(--heading-gradient-from), var(--heading-gradient-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: var(--font-size-xl);
+    margin: 0 auto 2rem;
+}
+
+.desc {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    margin-bottom: 3rem;
+}

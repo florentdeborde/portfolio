@@ -1,0 +1,21 @@
+/* SkipLink.module.css */
+.skipLink {
+    position: absolute;
+    top: -9999px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0 0 0.5rem 0.5rem;
+    transition: top 0.2s ease-in-out;
+}
+
+.skipLink:focus {
+    top: 0;
+    outline: 2px solid white;
+    outline-offset: -2px;
+}

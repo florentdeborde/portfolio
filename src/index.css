@@ -1,0 +1,292 @@
+:root {
+  /* =========================================
+     1. Color Palette & Theme Variables
+     ========================================= */
+
+  /* Primary Backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+
+  /* Accent Colors */
+  --accent-primary: #3b82f6;
+  --orange-primary: #f59e0b;
+
+  /* UI Elements */
+  --card-border: rgba(255, 255, 255, 0.15);
+  --card-border-hover: rgba(255, 255, 255, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+
+  /* Gradients & Glows */
+  --heading-gradient-from: #ffffff;
+  --heading-gradient-to: #a5b4fc;
+  --glow-color-1: rgba(76, 29, 149, 0.15);
+  --glow-color-2: rgba(59, 130, 246, 0.15);
+  --cta-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+
+  /* Tech Stack Colors */
+  --color-react: #61dafb;
+  --color-java: #f89820;
+  --color-spring: #6db33f;
+  --color-vite: #646cff;
+  --color-sql: #336791;
+
+  /* Social Colors */
+  --color-linkedin: var(--accent-primary);
+  --bg-linkedin-hover: rgba(0, 119, 181, 0.15);
+  --bg-social-hover: rgba(255, 255, 255, 0.1);
+
+  /* Status Colors */
+  --success-color: #10b981;
+  --warning-color: var(--orange-primary);
+  --error-color: #ef4444;
+
+  /* Toggle Theme Colors */
+  --toggle-thumb-bg: #0f172a;
+  --toggle-icon-color: #fbbf24;
+
+  /* =========================================
+     2. Typography Variables
+     ========================================= */
+  --font-size-xs: 0.6rem;
+  --font-size-sm: 0.75rem;
+  --font-size-base: 0.95rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+}
+
+[data-theme='light'] {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+
+  --text-primary: #171717;
+  --text-secondary: #525252;
+
+  --accent-primary: #2563eb;
+
+  --card-border: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(0, 0, 0, 0.03);
+
+  --heading-gradient-from: #1e293b;
+  --heading-gradient-to: #3b82f6;
+
+  /* Soft Indigo */
+  --glow-color-1: rgba(99, 102, 241, 0.08);
+  /* Soft Sky */
+  --glow-color-2: rgba(14, 165, 233, 0.08);
+
+
+  --toggle-thumb-bg: #ffffff;
+  --toggle-icon-color: var(--orange-primary);
+}
+
+/* =========================================
+   3. Reset & Base Styles
+   ========================================= */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection for inputs */
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* A11y: Focus Indicators */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Buttons and Links Focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   4. Typography Styles
+   ========================================= */
+h1 {
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  background: linear-gradient(to right, var(--heading-gradient-from), var(--heading-gradient-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-xl);
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+/* Typography Utilities */
+.text-xs {
+  font-size: var(--font-size-xs);
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+}
+
+.text-base {
+  font-size: var(--font-size-base);
+}
+
+.text-lg {
+  font-size: var(--font-size-lg);
+}
+
+.text-xl {
+  font-size: var(--font-size-xl);
+}
+
+.text-2xl {
+  font-size: var(--font-size-2xl);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+/* =========================================
+   5. Layout & Grid System
+   ========================================= */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+/* =========================================
+   6. Effects & Animations
+   ========================================= */
+.ambient-glow {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.ambient-glow::before,
+.ambient-glow::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Static Glow 1 */
+.ambient-glow::before {
+  background: radial-gradient(circle at 15% 50%, var(--glow-color-1), transparent 25%);
+}
+
+/* Static Glow 2 */
+.ambient-glow::after {
+  background: radial-gradient(circle at 85% 30%, var(--glow-color-2), transparent 25%);
+}
+
+/* Mouse Glow - Hardware Accelerated */
+.mouse-glow {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, var(--glow-color-2), transparent 50%);
+  top: 0;
+  left: 0;
+  transform: translate3d(var(--mouse-x, 50vw), var(--mouse-y, 50vh), 0) translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}

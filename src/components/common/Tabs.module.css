@@ -1,0 +1,106 @@
+/* Tabs Component Styles */
+.tabsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tabsContainer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    border: 1px solid var(--card-border);
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    /* Hide scrollbar for cleaner look but allow scrolling */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.tabsContainer::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.tabButton {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tabButton:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tabButton.active {
+    color: #fff;
+    background: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.tabContent {
+    margin-top: 2rem;
+    animation: fadeIn 0.4s ease-out;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .tabsContainer {
+        width: fit-content;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .tabButton {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        flex: 1 1 auto;
+        /* Allow buttons to grow/shrink safely */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tabsContainer {
+        /* On very small screens, maybe just scroll horizontally */
+        justify-content: flex-start;
+    }
+
+    .tabButton {
+        flex: 0 0 auto;
+        /* Stop shrinking, allow scrolling */
+    }
+}

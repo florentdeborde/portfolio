@@ -1,0 +1,263 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "projects": "Projets",
+        "about": "À propos",
+        "switchDark": "Mode sombre",
+        "switchLight": "Mode clair"
+    },
+    "home": {
+        "hero": {
+            "title": "Florent Deborde",
+            "subtitle": "Développeur Full-Stack spécialisé dans la création d'applications <1>robustes</1> et <3>performantes</3>. Prêt à relever vos défis techniques.",
+            "status": "Disponible pour une mission"
+        },
+        "projects": {
+            "title": "Projets",
+            "desc": "Découvrez une sélection de mes travaux récents mettant en avant mes compétences techniques.",
+            "cta": "Voir les projets"
+        },
+        "about": {
+            "title": "À Propos",
+            "desc": "Apprenez-en plus sur mon parcours, mon expérience et ce qui me passionne.",
+            "cta": "En savoir plus"
+        },
+        "latestProject": {
+            "title": "Dernier Projet",
+            "desc": "Découvrez ma réalisation la plus récente : Mayleo Email Gateway.",
+            "cta": "Explorer"
+        },
+        "techStack": {
+            "title": "Stack Technique"
+        },
+        "contact": {
+            "title": "Contact"
+        }
+    },
+    "projects": {
+        "header": {
+            "title": "Mon Travail",
+            "subtitle": "Une sélection de projets qui définissent mon parcours technique."
+        },
+        "status": {
+            "inProgress": "En cours",
+            "comingSoon": "À venir",
+            "operational": "Opérationnel",
+            "online": "En ligne",
+            "maintenance": "Maintenance"
+        },
+        "links": {
+            "github": "Dépôt GitHub",
+            "githubFrontend": "GitHub Frontend",
+            "githubBackend": "GitHub Backend",
+            "external": "Site en direct",
+            "tryIt": "Essayer"
+        },
+        "categories": {
+            "citizen_blog": "Blog Collectif Citoyen",
+            "full_stack_app": "App Full Stack",
+            "wellness_blog": "Blog Bien-être",
+            "microservice": "Microservice"
+        },
+        "tech": {
+            "react": "React",
+            "spring_boot": "Spring Boot",
+            "mysql": "MySQL",
+            "postgresql": "PostgreSQL",
+            "css": "CSS",
+            "vite": "Vite",
+            "cra": "CRA",
+            "smtp": "SMTP"
+        },
+        "github-readme": {
+            "loading": "Chargement de la documentation...",
+            "error": "Impossible de charger la documentation depuis GitHub."
+        },
+        "items": {
+            "fertenergie": {
+                "title": "Ferténergie",
+                "description": "Une SPA React moderne pour un collectif citoyen dédié au développement des énergies renouvelables.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture & Design",
+                        "content": "Une Single Page Application (SPA) moderne conçue pour un collectif citoyen. Le projet est structuré pour présenter de manière fluide les installations photovoltaïques locales et les actions collectives en faveur des énergies renouvelables.",
+                        "siteStatus": {
+                            "label": "Statut Site"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalités Clés",
+                        "list": [
+                            "Vitrine des installations photovoltaïques locales",
+                            "Présentation des actions collectives citoyennes",
+                            "Interface responsive et moderne",
+                            "Support multilingue complet (i18n)",
+                            "Optimisation pour le déploiement statique"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Stack Technique",
+                        "content": "Une stack moderne privilégiant la performance et la maintenabilité.",
+                        "list": [
+                            "React 19",
+                            "Vite 7",
+                            "React Router 7",
+                            "Lucide React",
+                            "i18next"
+                        ]
+                    },
+                    "links": {
+                        "title": "Liens du Projet"
+                    }
+                }
+            },
+            "energeticienne": {
+                "title": "Énergeticienne Isabelle Deborde",
+                "title-short": "Energeticienne",
+                "description": "Un blog professionnel de bien-être conçu avec React pour les praticiens holistiques.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture & Design",
+                        "content": "Le site est conçu comme une vitrine professionnelle moderne, mettant l'accent sur la sérénité et la clarté. L'architecture repose sur une Single Page Application responsive.",
+                        "siteStatus": {
+                            "label": "Statut Site"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalités",
+                        "list": [
+                            "Présentation des soins et services",
+                            "Système de prise de contact fluide",
+                            "Architecture SEO-friendly et gestion des méta-données",
+                            "Design adaptatif pour tous supports"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Stack Technique",
+                        "content": "Une approche légère et performante pour une expérience utilisateur fluide.",
+                        "list": [
+                            "React 19",
+                            "Vite 7",
+                            "React Router 7",
+                            "Framer Motion",
+                            "i18next"
+                        ]
+                    },
+                    "links": {
+                        "title": "Liens du Projet"
+                    }
+                }
+            },
+            "saas-app": {
+                "title": "Plateforme SaaS",
+                "description": "Une application full-stack robuste avec un frontend React et un backend Spring Boot."
+            },
+            "mayleo-email-gateway": {
+                "title": "Mayleo Email Gateway",
+                "title-short": "Mayleo",
+                "description": "Passerelle email multi-tenant sécurisée (AES) pour l'envoi automatisé de cartes postales numériques via une API unifiée.",
+                "overview": {
+                    "architecture": {
+                        "title": "Conception Système",
+                        "content": "Une passerelle multi-tenant haute performance avec signature HMAC, cryptage AES-256 et isolation stricte des clients par domaine.",
+                        "apiStatus": {
+                            "label": "Statut API"
+                        }
+                    },
+                    "features": {
+                        "title": "Capacités Clés",
+                        "list": [
+                            "Multi-Tenant & Isolation",
+                            "Signature HMAC & Whitelisting Domaines",
+                            "Chiffrement AES-256 (Zero-Knowledge)",
+                            "Idempotence & Rate Limiting",
+                            "File d'attente Asynchrone & Self-Healing"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Stack Technique",
+                        "content": "Architecture backend robuste orientée sécurité et haute disponibilité.",
+                        "list": [
+                            "Java 17 & Spring Boot 3",
+                            "Spring Data JPA & Hibernate",
+                            "Jakarta Mail",
+                            "ShedLock (Distributed Lock)",
+                            "Caffeine Cache"
+                        ]
+                    },
+                    "links": {
+                        "title": "Liens du Projet"
+                    }
+                },
+                "demo": {
+                    "photo": {
+                        "title": "1. Choisissez votre photo",
+                        "postcards": {
+                            "postcard-0": "Montagne",
+                            "postcard-1": "Arbres",
+                            "postcard-2": "Ville en bord de mer",
+                            "postcard-3": "Parapluies",
+                            "postcard-4": "Vélo contre un container jaune",
+                            "postcard-5": "Plage"
+                        }
+                    },
+                    "form": {
+                        "title": "2. Rédigez votre message",
+                        "label-email": "Email du destinataire",
+                        "email-disclaimer": "* La délivrabilité vers certaines adresses comme Microsoft est restreinte.",
+                        "placeholder-email": "destinataire@exemple.com",
+                        "label-message": "Votre message",
+                        "placeholder-message": "Écrivez quelque chose de mémorable...",
+                        "btn-send": "Envoyer la Carte",
+                        "btn-sending": "Envoi en cours...",
+                        "success": "Demande d'envoi enregistrée avec succès !",
+                        "error": "Erreur lors de l'envoi de l'email.",
+                        "errors": {
+                            "MAYLEO_DISABLED": "L'envoi via Mayleo est actuellement désactivé.",
+                            "MAYLEO_MISSING_CONFIG": "La configuration du portfolio est incomplète (clés API manquantes).",
+                            "MAYLEO_INVALID_REQUEST": "Paramètres invalides (email ou message manquant).",
+                            "MAYLEO_SERVICE_UNAVAILABLE": "La passerelle Mayleo est actuellement indisponible.",
+                            "MAYLEO_UNKNOWN_ERROR": "Une erreur inconnue est survenue."
+                        },
+                        "default-subject": "Une carte postale de Mayleo",
+                        "footer-note": "Expédition via l'API Mayleo Email Gateway"
+                    }
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "À propos de moi",
+        "subtitle": "Expertise Full-Stack & Rigueur d'Ingénierie",
+        "intro": {
+            "title": "Mon Parcours",
+            "desc": "Issu du génie électrique, j'ai toujours vu dans la programmation un outil puissant pour résoudre des défis complexes.\n\nAprès une première étape réussie dans l'énergie, j'ai choisi de transformer ma passion pour le développement en métier.\n\nMon parcours m'a permis de maîtriser les architectures Backend avant de m'épanouir dans des rôles Full-Stack, où je combine aujourd'hui vision globale et précision technique."
+        },
+        "international": {
+            "title": "Profil International",
+            "desc": "Bilingue Français et Espagnol, avec une maîtrise professionnelle de l'anglais.\n\nBasé entre la France et l'Espagne."
+        },
+        "values": {
+            "title": "Engagement & Valeurs",
+            "desc": "Passionné par les projets qui font bouger les lignes, je mets ma rigueur technique au service de causes qui ont du sens.\n\nDévelopper, c'est aussi pour moi collaborer étroitement pour transformer des idées citoyennes en outils numériques performants, éthiques et utiles."
+        }
+    },
+    "footer": {
+        "allRightsReserved": "Tous droits réservés.",
+        "builtWith": "Conçu avec"
+    },
+    "error404": {
+        "title": "Page Introuvable",
+        "subtitle": "Oops ! Il semble que vous soyez perdu dans le cyberespace.",
+        "desc": "La page que vous recherchez n'existe pas ou a été déplacée.",
+        "cta": "Retour à l'accueil"
+    },
+    "tabs": {
+        "readme": "ReadMe",
+        "demo": "Démo",
+        "overview": "Aperçu"
+    },
+    "a11y": {
+        "skipToContent": "Aller au contenu principal"
+    }
+}

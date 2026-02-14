@@ -1,0 +1,70 @@
+import { useTranslation } from 'react-i18next';
+import { Send } from 'lucide-react';
+import { Button } from '@/components/common/Button';
+import styles from './MessageForm.module.css';
+
+interface FormData {
+    toEmail: string;
+    message: string;
+}
+
+interface MessageFormProps {
+    formData: FormData;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    onSubmit: (e: React.FormEvent) => void;
+    isSubmitting: boolean;
+}
+
+export const MessageForm = ({ formData, handleChange, onSubmit, isSubmitting }: MessageFormProps) => {
+    const { t } = useTranslation();
+
+    return (
+        <form onSubmit={onSubmit} className={styles.messageForm}>
+            <div className={styles.messageFormInputGroup}>
+                <label className={styles.label}>{t('projects.items.mayleo-email-gateway.demo.form.label-email')}</label>
+                <input
+                    type="email"
+                    name="toEmail"
+                    value={formData.toEmail}
+                    onChange={handleChange}
+                    className={styles.messageFormInputField}
+                    placeholder={t('projects.items.mayleo-email-gateway.demo.form.placeholder-email')}
+                    required
+                    disabled={isSubmitting}
+                />
+                <p className={styles.disclaimer}>
+                    {t('projects.items.mayleo-email-gateway.demo.form.email-disclaimer')}
+                </p>
+            </div>
+
+            <div className={styles.messageFormInputGroup}>
+                <label className={styles.label}>{t('projects.items.mayleo-email-gateway.demo.form.label-message')}</label>
+                <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={styles.messageFormTextareaField}
+                    placeholder={t('projects.items.mayleo-email-gateway.demo.form.placeholder-message')}
+                    required
+                    disabled={isSubmitting}
+                />
+            </div>
+
+            <Button
+                type="submit"
+                className={styles.button}
+                style={{ width: '100%', border: 'none', justifyContent: 'center', opacity: isSubmitting ? 0.7 : 1 }}
+                disabled={isSubmitting}
+                icon={<Send size={20} className={`${styles.buttonIcon} ${isSubmitting ? 'animate-pulse' : ''}`} />}
+            >
+                {isSubmitting ? t('projects.items.mayleo-email-gateway.demo.form.btn-sending') : t('projects.items.mayleo-email-gateway.demo.form.btn-send')}
+            </Button>
+
+            <div className={styles.messageFormFooterNote}>
+                {t('projects.items.mayleo-email-gateway.demo.form.footer-note')}
+            </div>
+        </form>
+    );
+};
+
+export default MessageForm;

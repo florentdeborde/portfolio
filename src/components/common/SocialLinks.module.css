@@ -1,0 +1,35 @@
+.socialLinksContainer {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.socialBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.socialBtn:hover {
+    transform: translateY(-3px);
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.socialBtn.githubEmail:hover {
+    background: var(--bg-social-hover);
+}
+
+.socialBtn.linkedin:hover {
+    background: var(--bg-linkedin-hover);
+    border-color: var(--color-linkedin);
+    color: var(--color-linkedin);
+}

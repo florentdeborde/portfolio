@@ -1,0 +1,220 @@
+/* Main Container */
+.markdownBody {
+    font-family: inherit;
+    color: var(--text-primary);
+    line-height: 1.6;
+    word-wrap: break-word;
+    padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .markdownBody {
+        padding: 2.5rem;
+    }
+}
+
+/* Headers with theme support */
+.markdownBody h1,
+.markdownBody h2,
+.markdownBody h3,
+.markdownBody h4,
+.markdownBody h5,
+.markdownBody h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    line-height: 1.25;
+    scroll-margin-top: 100px;
+}
+
+.markdownBody h1,
+.markdownBody h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.markdownBody h1 {
+    font-size: 2rem;
+}
+
+.markdownBody h2 {
+    font-size: 1.5rem;
+}
+
+.markdownBody h3 {
+    font-size: 1.25rem;
+}
+
+/* Links using theme accent color */
+.markdownBody a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.markdownBody a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Code blocks (standard ``` code) */
+.markdownBody pre {
+    padding: 1rem;
+    overflow: auto;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    margin: 1.5rem 0;
+}
+
+/* Inline code */
+.markdownBody code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 0.2em 0.4em;
+    border-radius: 6px;
+    font-size: 85%;
+    color: var(--accent-primary);
+}
+
+.markdownBody pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    color: #cbd5e1;
+    /* Sophisticated light grey */
+    font-size: inherit;
+}
+
+/* Data Tables - Responsive Wrapper */
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.markdownBody table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.markdownBody table th {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.markdownBody table th,
+.markdownBody table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--card-border);
+    text-align: left;
+}
+
+.markdownBody table tr:nth-child(2n) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Lists and Images */
+.markdownBody ul,
+.markdownBody ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.markdownBody li {
+    margin-bottom: 0.5rem;
+}
+
+.markdownBody img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+/* GitHub Alerts Styling */
+.githubAlert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 0.25rem solid;
+    border-radius: 0 8px 8px 0;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.alertTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+}
+
+/* Alert Type Variants */
+.githubAlertNote {
+    border-left-color: #3b82f6;
+}
+
+.githubAlertNote .alertTitle {
+    color: #3b82f6;
+}
+
+.githubAlertTip {
+    border-left-color: #10b981;
+}
+
+.githubAlertTip .alertTitle {
+    color: #10b981;
+}
+
+.githubAlertImportant {
+    border-left-color: #a855f7;
+}
+
+.githubAlertImportant .alertTitle {
+    color: #a855f7;
+}
+
+.githubAlertWarning {
+    border-left-color: #f59e0b;
+}
+
+.githubAlertWarning .alertTitle {
+    color: #f59e0b;
+}
+
+.githubAlertCaution {
+    border-left-color: #ef4444;
+}
+
+.githubAlertCaution .alertTitle {
+    color: #ef4444;
+}
+
+.alertContent {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.alertContent p:last-child {
+    margin-bottom: 0;
+}
+
+/* Standard Blockquote */
+.markdownBody blockquote:not(.githubAlert) {
+    padding: 0.5rem 1.25rem;
+    color: var(--text-secondary);
+    border-left: 0.25rem solid var(--card-border);
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.markdownBody p {
+    margin-bottom: 1rem;
+}

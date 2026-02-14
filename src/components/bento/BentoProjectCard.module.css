@@ -1,0 +1,123 @@
+/* Project Card Styles */
+.bentoProjectCardFooter {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+    margin-top: auto;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.bentoProjectCardTags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-self: start;
+}
+
+.bentoProjectCardLinks {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-self: end;
+    justify-self: end;
+}
+
+.bentoProjectCardLink {
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    border: 1px solid var(--card-border);
+}
+
+.bentoProjectCardLink:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.bentoProjectCardLinkButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    transition: all 0.2s;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.bentoProjectCardLinkButton:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.bentoProjectCardLinkButton.primary {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.bentoProjectCardLinkButton.primary:hover {
+    background: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+.bentoProjectCardLinkIconStack {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bentoProjectCardLinkLabel {
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    background: var(--accent-primary);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-extrabold);
+    padding: 1px 3px;
+    border-radius: 4px;
+    line-height: 1;
+    border: 1px solid var(--bg-secondary);
+}
+
+.bentoProjectCardTag {
+    font-size: var(--font-size-sm);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
+}
+
+@media (max-width: 768px) {
+    .bentoProjectCardFooter {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+
+    .bentoProjectCardLinks {
+        justify-content: flex-end;
+    }
+}
