@@ -3,10 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Home } from '@/pages/Home';
 import { Projects } from '@/pages/Projects';
 import { About } from '@/pages/About';
-import { Mayleo } from '@/pages/projects/Mayleo';
-import { Portfolio } from '@/pages/projects/Portfolio';
-import { Energeticienne } from '@/pages/projects/Energeticienne';
-import { Fertenergie } from '@/pages/projects/Fertenergie';
+import { ProjectDetails } from '@/pages/ProjectDetails';
 import { NotFound } from '@/pages/NotFound';
 import './index.css';
 
@@ -43,10 +40,7 @@ function App() {
             <Routes>
               <Route path={ROUTES.HOME} element={<Home />} />
               <Route path={ROUTES.PROJECTS.ROOT} element={<Projects />} />
-              <Route path={ROUTES.PROJECTS.MAYLEO} element={<Mayleo />} />
-              <Route path={ROUTES.PROJECTS.ENERGETICIENNE} element={<Energeticienne />} />
-              <Route path={ROUTES.PROJECTS.FERTENERGIE} element={<Fertenergie />} />
-              <Route path={ROUTES.PROJECTS.PORTFOLIO} element={<Portfolio />} />
+              <Route path={ROUTES.PROJECTS.DETAILS} element={<ProjectDetails />} />
               <Route path={ROUTES.ABOUT} element={<About />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

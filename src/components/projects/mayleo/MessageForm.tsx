@@ -21,8 +21,9 @@ export const MessageForm = ({ formData, handleChange, onSubmit, isSubmitting }: 
     return (
         <form onSubmit={onSubmit} className={styles.messageForm}>
             <div className={styles.messageFormInputGroup}>
-                <label className={styles.label}>{t('projects.items.mayleo-email-gateway.demo.form.label-email')}</label>
+                <label htmlFor="toEmail" className={styles.label}>{t('projects.items.mayleo-email-gateway.demo.form.label-email')}</label>
                 <input
+                    id="toEmail"
                     type="email"
                     name="toEmail"
                     value={formData.toEmail}
@@ -38,16 +39,19 @@ export const MessageForm = ({ formData, handleChange, onSubmit, isSubmitting }: 
             </div>
 
             <div className={styles.messageFormInputGroup}>
-                <label className={styles.label}>{t('projects.items.mayleo-email-gateway.demo.form.label-message')}</label>
-                <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className={styles.messageFormTextareaField}
-                    placeholder={t('projects.items.mayleo-email-gateway.demo.form.placeholder-message')}
-                    required
-                    disabled={isSubmitting}
-                />
+                <label htmlFor="message" className={styles.label}>{t('projects.items.mayleo-email-gateway.demo.form.label-message')}</label>
+                <article>
+                    <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        className={styles.messageFormTextareaField}
+                        placeholder={t('projects.items.mayleo-email-gateway.demo.form.placeholder-message')}
+                        required
+                        disabled={isSubmitting}
+                    />
+                </article>
             </div>
 
             <Button

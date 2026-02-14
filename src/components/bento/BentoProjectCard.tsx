@@ -1,27 +1,12 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Play } from 'lucide-react';
 import { GithubIcon, ExternalLinkIcon } from '@/components/common/BrandIcons';
-import { ProjectStatus, ProjectStatusType } from '@/components/projects/ProjectStatus';
+import { ProjectStatus } from '@/components/projects/ProjectStatus';
 import { BentoCard } from './BentoCard';
 import styles from './BentoProjectCard.module.css';
 
-export interface Project {
-    id: 'mayleo-email-gateway' | 'portfolio' | 'fertenergie' | 'energeticienne' | 'saas-app';
-    category: 'microservice' | 'portfolio' | 'wellness_blog' | 'citizen_blog' | 'full_stack_app';
-    size: 'large' | 'wide' | 'full' | 'large-full' | 'normal';
-    icon: React.ElementType;
-    color: string;
-    status?: ProjectStatusType;
-    tech: ('react' | 'spring_boot' | 'java' | 'mysql' | 'postgresql' | 'css' | 'vite' | 'javascript' | 'typescript' | 'smtp')[];
-    internalLink?: string;
-    github?: string;
-    githubBackend?: string;
-    githubFrontend?: string;
-    external?: string;
-    demoLink?: string;
-}
+import { Project } from '@/types/project';
 
 interface BentoProjectCardProps {
     project: Project;
@@ -125,17 +110,21 @@ export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
         </>
     );
 
+    const isClickable = project.isClickable !== false;
+
     return (
         <BentoCard
             size={project.size}
-            to={project.internalLink}
-            className="block text-left" // Ensure text alignment for project cards
+            to={isClickable ? project.internalLink : undefined}
+            className={`block text-left ${!isClickable ? styles.disabledCard : ''}`} // Ensure text alignment for project cards
             headerIcon={Icon}
             headerTitle={t(`projects.items.${project.id}.title`)}
             headerSubtitle={t(`projects.categories.${project.category}`)}
             description={t(`projects.items.${project.id}.description`)}
         >
-            {content}
+            <div className={!isClickable ? 'pointer-events-none opacity-80' : ''}>
+                {content}
+            </div>
         </BentoCard>
     );
 };

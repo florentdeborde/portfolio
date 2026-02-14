@@ -3,6 +3,7 @@ export const ROUTES = {
     ABOUT: '/about',
     PROJECTS: {
         ROOT: '/projects',
+        DETAILS: '/projects/:projectId',
         MAYLEO: '/projects/mayleo',
         FERTENERGIE: '/projects/fertenergie',
         ENERGETICIENNE: '/projects/energeticienne',

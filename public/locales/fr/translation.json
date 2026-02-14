@@ -86,7 +86,7 @@
                         "title": "Architecture & Design",
                         "content": "Projet conçu avec React 19 et Vite 7, privilégiant la rapidité et la modularité. L'architecture utilise un design personnalisé en grille Bento pour mettre en valeur mes réalisations techniques.",
                         "siteStatus": {
-                            "label": "Statut du Projet"
+                            "label": "Statut Site"
                         }
                     },
                     "features": {
@@ -156,8 +156,7 @@
                 }
             },
             "energeticienne": {
-                "title": "Énergeticienne Isabelle Deborde",
-                "title-short": "Energeticienne",
+                "title": "Énergeticienne",
                 "description": "Un blog professionnel de bien-être conçu avec React pour les praticiens holistiques.",
                 "overview": {
                     "architecture": {

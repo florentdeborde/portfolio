@@ -79,10 +79,13 @@ describe('App Navigation', () => {
         const projectsLinks = screen.getAllByText('nav.projects');
         fireEvent.click(projectsLinks[0]);
 
-        // Then click on portfolio card (title isPortFolio (v2) in mock translation it's projects.items.portfolio.title)
+        // Then click on portfolio card
         const portfolioCard = screen.getByText('projects.items.portfolio.title');
         fireEvent.click(portfolioCard.closest('a')!);
 
-        expect(screen.getByText('projects.items.portfolio.title')).toBeInTheDocument();
+        // Expect to see the short title on the details page
+        expect(screen.getByText('projects.items.portfolio.title-short')).toBeInTheDocument();
+        // Also check for something specific to ProjectDetails like the Overview tab
+        expect(screen.getByText('tabs.overview')).toBeInTheDocument();
     });
 });

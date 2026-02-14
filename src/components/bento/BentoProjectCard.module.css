@@ -121,3 +121,15 @@
         justify-content: flex-end;
     }
 }
+
+.disabledCard {
+    cursor: default !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.disabledCard:hover {
+    transform: none !important;
+    background: var(--glass-bg-accent) !important;
+    border-color: var(--card-border) !important;
+}

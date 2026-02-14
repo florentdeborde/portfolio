@@ -86,7 +86,7 @@
                         "title": "Architecture & Design",
                         "content": "This project is built with React 19 and Vite 7, prioritizing speed and modularity. The architecture uses a custom Bento-grid design to showcase technical projects with high visual impact.",
                         "siteStatus": {
-                            "label": "Project Status"
+                            "label": "Site Status"
                         }
                     },
                     "features": {
@@ -156,8 +156,7 @@
                 }
             },
             "energeticienne": {
-                "title": "Isabelle Deborde Energy Healing",
-                "title-short": "Energy Healing",
+                "title": "Energy Healing",
                 "description": "A professional wellness blog built with React for holistic practitioners.",
                 "overview": {
                     "architecture": {

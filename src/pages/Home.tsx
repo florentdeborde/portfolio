@@ -58,7 +58,7 @@ export const Home = () => {
                     ctaText={t('home.latestProject.cta')}
                     headerExtras={
                         <div className="bento-home-card-badge-container">
-                            <ProjectStatus status={parameters.githubProjects.mayleoEmailGateway.status} />
+                            <ProjectStatus status={parameters.projects.find(p => p.id === 'mayleo-email-gateway')?.status} />
                         </div>
                     }
                 >
