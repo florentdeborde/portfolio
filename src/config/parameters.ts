@@ -3,9 +3,14 @@ import { Mail, Shield, UserRoundSearch, Leaf, Zap } from 'lucide-react';
 import { Project } from '@/types/project';
 
 export const parameters = {
+    siteUrl: import.meta.env.VITE_SITE_URL || "https://florentdeborde-portfolio.vercel.app/",
     github: "https://github.com/florentdeborde",
     linkedin: "https://www.linkedin.com/in/florent-deborde-32ba9812a/",
     email: "florentdeborde.projects@gmail.com",
+    defaultSeo: {
+        title: "Florent Deborde - Full-Stack Developer",
+        description: "Modern portfolio of Florent Deborde, a Full-Stack Developer focused on robust and high-performance applications."
+    },
     techStack: {
         backend: [
             { name: 'Java 17', class: 'java' },

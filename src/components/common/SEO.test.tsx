@@ -24,12 +24,14 @@ describe('SEO Component', () => {
         );
     };
 
+    const siteTitle = 'Florent Deborde - Full-Stack Developer';
+    const siteUrl = 'https://florentdeborde-portfolio.vercel.app';
+
     it('renders default title and description', async () => {
         renderSEO();
 
         await waitFor(() => {
-            expect(document.title).toBe('Florent Deborde - Portfolio');
-            // Helper to check meta tags
+            expect(document.title).toBe(siteTitle);
             const metaDescription = document.querySelector('meta[name="description"]');
             expect(metaDescription).toHaveAttribute('content', 'home.hero.subtitle');
         });
@@ -43,7 +45,7 @@ describe('SEO Component', () => {
         renderSEO(props);
 
         await waitFor(() => {
-            expect(document.title).toBe('Custom Title | Florent Deborde - Portfolio');
+            expect(document.title).toBe(`Custom Title | ${siteTitle}`);
             const metaDescription = document.querySelector('meta[name="description"]');
             expect(metaDescription).toHaveAttribute('content', 'Custom Description');
         });
@@ -60,9 +62,9 @@ describe('SEO Component', () => {
         renderSEO(props);
 
         await waitFor(() => {
-            expect(document.querySelector('meta[property="og:title"]')).toHaveAttribute('content', 'OG Title | Florent Deborde - Portfolio');
+            expect(document.querySelector('meta[property="og:title"]')).toHaveAttribute('content', `OG Title | ${siteTitle}`);
             expect(document.querySelector('meta[property="og:description"]')).toHaveAttribute('content', 'OG Description');
-            expect(document.querySelector('meta[property="og:image"]')).toHaveAttribute('content', '/test-image.jpg');
+            expect(document.querySelector('meta[property="og:image"]')).toHaveAttribute('content', `${siteUrl}/test-image.jpg`);
             expect(document.querySelector('meta[property="og:url"]')).toHaveAttribute('content', 'https://test.com');
             expect(document.querySelector('meta[property="og:type"]')).toHaveAttribute('content', 'article');
         });
@@ -78,9 +80,9 @@ describe('SEO Component', () => {
 
         await waitFor(() => {
             expect(document.querySelector('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
-            expect(document.querySelector('meta[name="twitter:title"]')).toHaveAttribute('content', 'Twitter Title | Florent Deborde - Portfolio');
+            expect(document.querySelector('meta[name="twitter:title"]')).toHaveAttribute('content', `Twitter Title | ${siteTitle}`);
             expect(document.querySelector('meta[name="twitter:description"]')).toHaveAttribute('content', 'Twitter Description');
-            expect(document.querySelector('meta[name="twitter:image"]')).toHaveAttribute('content', '/twitter-image.jpg');
+            expect(document.querySelector('meta[name="twitter:image"]')).toHaveAttribute('content', `${siteUrl}/twitter-image.jpg`);
         });
     });
 });

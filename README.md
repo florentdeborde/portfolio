@@ -64,6 +64,7 @@ When duplicating this project for another developer, you’ll mainly need to upd
 | File / Folder                 | What to update                                                     |
 | ----------------------------- | ------------------------------------------------------------------ |
 | `/public/p-logo.svg`          | Site logo/favicon                                                  |
+| `/public/og-image.png`        | Image for SEO (Open Graph)                                         |
 | `/public/locales/`            | Translation JSON files                                             |
 | `/public/sitemap.xml`         | Update URLs for the new domain                                     |
 | `/src/assets/`                | Project images and assets                                          |
@@ -101,7 +102,7 @@ You can preview or host it using Vercel, Netlify, or any static hosting provider
   - [x] Consolidate global styles to avoid conflicts.
 - [ ] **Assets & Optimization**:
   - [ ] Automate image optimization (WebP/AVIF generation).
-  - [ ] Implement a default OG image for SEO.
+  - [x] Implement a default OG image for SEO.
 - [ ] **Accessibility (A11y)**:
   - [ ] Audit keyboard navigation focus states.
   - [ ] Ensure all interactive elements have proper ARIA labels.

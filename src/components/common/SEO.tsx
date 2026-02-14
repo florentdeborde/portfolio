@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
+import { parameters } from '@/config/parameters';
+
 export interface SEOProps {
     title?: string;
     description?: string;
@@ -12,10 +14,16 @@ export interface SEOProps {
 export const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => {
     const { t } = useTranslation();
 
-    const siteTitle = 'Florent Deborde - Portfolio';
+    const siteTitle = parameters.defaultSeo.title;
     const metaTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-    const metaDescription = description || t('home.hero.subtitle');
-    const metaImage = image || '/preview-image.jpg'; // TODO: Add default preview image
+    const metaDescription = description || t('home.hero.subtitle') || parameters.defaultSeo.description;
+
+    // OG images MUST be absolute URLs
+    const imagePath = image || '/og-image.png';
+    const metaImage = imagePath.startsWith('http')
+        ? imagePath
+        : `${parameters.siteUrl.replace(/\/$/, '')}${imagePath}`;
+
     const metaUrl = url || window.location.href;
 
     return (
