@@ -3,7 +3,6 @@
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr;
-    max-width: 1000px;
     margin: 3rem auto 0;
     animation: fade-in-up 0.8s ease-out 0.2s forwards;
     opacity: 0;
