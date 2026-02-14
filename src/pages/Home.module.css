@@ -4,8 +4,6 @@
     gap: 1.5rem;
     grid-template-columns: 1fr;
     margin: 3rem auto 0;
-    animation: fade-in-up 0.8s ease-out 0.2s forwards;
-    opacity: 0;
 }
 
 @media (min-width: 768px) {
@@ -20,17 +18,5 @@
 
     .colSpan1 {
         grid-column: span 1;
-    }
-}
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

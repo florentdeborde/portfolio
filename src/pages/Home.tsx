@@ -22,7 +22,7 @@ export const Home = () => {
         }}>
             <HomeHero />
 
-            <section className={styles.homeGrid}>
+            <section className={`${styles.homeGrid} animate-fade-in-up animate-delay-200`}>
                 {/* Main Projects Card */}
                 <BentoHomeCard
                     icon={Layout}
