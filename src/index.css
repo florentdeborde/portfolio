@@ -33,6 +33,8 @@
   --color-spring: #6db33f;
   --color-vite: #646cff;
   --color-sql: #336791;
+  --color-shed: #3178c6;
+  --color-i18n: #ffd700;
 
   /* Social Colors */
   --color-linkedin: var(--accent-primary);

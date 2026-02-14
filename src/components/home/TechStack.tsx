@@ -1,17 +1,19 @@
 import styles from './TechStack.module.css';
 
-export const TechStack = () => {
-    const techItems = [
-        { name: 'Java 17', class: 'java' },
-        { name: 'Spring Boot 3', class: 'spring' },
-        { name: 'SQL', class: 'sql' },
-        { name: 'React 19', class: 'react' },
-        { name: 'Vite 7', class: 'vite' },
-    ];
+export interface TechItem {
+    name: string;
+    class: string;
+}
 
+interface TechStackProps {
+    items: TechItem[];
+    className?: string; // Allow passing custom class for grid layout if needed
+}
+
+export const TechStack = ({ items, className = '' }: TechStackProps) => {
     return (
-        <div className={styles.techGrid}>
-            {techItems.map((item) => (
+        <div className={`${styles.techGrid} ${className}`}>
+            {items.map((item) => (
                 <div key={item.name} className={styles.techItem}>
                     <span className={`${styles.techDot} ${styles[item.class]}`}></span>
                     {item.name}

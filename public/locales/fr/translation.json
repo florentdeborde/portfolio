@@ -28,7 +28,9 @@
             "cta": "Explorer"
         },
         "techStack": {
-            "title": "Stack Technique"
+            "title": "Stack Technique",
+            "backend": "Stack Backend",
+            "frontend": "Stack Frontend"
         },
         "contact": {
             "title": "Contact"

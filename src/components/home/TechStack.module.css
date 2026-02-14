@@ -50,3 +50,11 @@
 .techDot.sql {
     background-color: var(--color-sql);
 }
+
+.techDot.shed {
+    background-color: var(--color-shed);
+}
+
+.techDot.i18n {
+    background-color: var(--color-i18n);
+}

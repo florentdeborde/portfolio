@@ -12,6 +12,20 @@ import styles from './Home.module.css';
 export const Home = () => {
     const { t } = useTranslation();
 
+    const backendTechs = [
+        { name: 'Java 17', class: 'java' },
+        { name: 'Spring Boot 3', class: 'spring' },
+        { name: 'SQL', class: 'sql' },
+        { name: 'ShedLock', class: 'shed' },
+    ];
+
+    const frontendTechs = [
+        { name: 'React 19', class: 'react' },
+        { name: 'Vite 7', class: 'vite' },
+        { name: 'JavaScript', class: 'java' },
+        { name: 'i18n', class: 'i18n' },
+    ];
+
     return (
         <PageLayout seo={{
             title: t('home.hero.title'),
@@ -32,27 +46,6 @@ export const Home = () => {
                     <p>{t('home.projects.desc')}</p>
                 </BentoHomeCard>
 
-                {/* Tech Stack Card */}
-                <BentoHomeCard
-                    icon={Code2}
-                    title={t('home.techStack.title')}
-                    className={styles.colSpan1}
-                >
-                    <TechStack />
-                </BentoHomeCard>
-
-                {/* About Card */}
-                <BentoHomeCard
-                    icon={User}
-                    title={t('home.about.title')}
-                    className={styles.colSpan1}
-                    ctaLink="/about"
-                    ctaText={t('home.about.cta')}
-                /* ctaSize="small" */
-                >
-                    <p>{t('home.about.desc')}</p>
-                </BentoHomeCard>
-
                 {/* Latest Project Card (Mayleo) */}
                 <BentoHomeCard
                     icon={Server}
@@ -69,7 +62,37 @@ export const Home = () => {
                 >
                     <p>{t('home.latestProject.desc')}</p>
                 </BentoHomeCard>
+
+                {/* About Card */}
+                <BentoHomeCard
+                    icon={User}
+                    title={t('home.about.title')}
+                    className={styles.colSpan1}
+                    ctaLink="/about"
+                    ctaText={t('home.about.cta')}
+                /* ctaSize="small" */
+                >
+                    <p>{t('home.about.desc')}</p>
+                </BentoHomeCard>
+
+                {/* Backend Tech Stack Card */}
+                <BentoHomeCard
+                    icon={Code2}
+                    title={t('home.techStack.backend')}
+                    className={styles.colSpan1}
+                >
+                    <TechStack items={backendTechs} />
+                </BentoHomeCard>
+
+                {/* Frontend Tech Stack Card */}
+                <BentoHomeCard
+                    icon={Code2}
+                    title={t('home.techStack.frontend')}
+                    className={styles.colSpan1}
+                >
+                    <TechStack items={frontendTechs} />
+                </BentoHomeCard>
             </section>
-        </PageLayout>
+        </PageLayout >
     );
 };

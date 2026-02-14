@@ -28,7 +28,9 @@
             "cta": "Explore"
         },
         "techStack": {
-            "title": "Tech Stack"
+            "title": "Tech Stack",
+            "backend": "Backend Stack",
+            "frontend": "Frontend Stack"
         },
         "contact": {
             "title": "Get in touch"
