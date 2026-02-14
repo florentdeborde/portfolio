@@ -20,9 +20,10 @@ export const SEO = ({ title, description, image, url, type = 'website' }: SEOPro
 
     // OG images MUST be absolute URLs
     const imagePath = image || '/og-image.png';
+    const baseUrl = (parameters.siteUrl || '').replace(/\/$/, '');
     const metaImage = imagePath.startsWith('http')
         ? imagePath
-        : `${parameters.siteUrl.replace(/\/$/, '')}${imagePath}`;
+        : `${baseUrl}${imagePath}`;
 
     const metaUrl = url || window.location.href;
 

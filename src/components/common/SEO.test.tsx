@@ -25,7 +25,7 @@ describe('SEO Component', () => {
     };
 
     const siteTitle = 'Florent Deborde - Full-Stack Developer';
-    const siteUrl = 'https://florentdeborde-portfolio.vercel.app';
+    const siteUrl = '';
 
     it('renders default title and description', async () => {
         renderSEO();
