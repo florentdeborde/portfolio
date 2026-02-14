@@ -31,30 +31,32 @@
     flex-shrink: 0;
 }
 
-.techDot.react {
-    background-color: var(--color-react);
-}
-
+/* Backend: Java 17 */
 .techDot.java {
-    background-color: var(--color-java);
+    background-color: #f89820;
 }
 
-.techDot.spring {
-    background-color: var(--color-spring);
+/* Backend: Spring Boot 3 */
+.techDot.core-spring {
+    background-color: #6db33f;
 }
 
-.techDot.vite {
-    background-color: var(--color-vite);
+/* Frontend: React 19 & Vite 7 */
+.techDot.core-react {
+    background-color: #61dafb;
 }
 
-.techDot.sql {
-    background-color: var(--color-sql);
+/* Langages: TS & JS */
+.techDot.ts-js {
+    background-color: #3178c6;
 }
 
-.techDot.shed {
-    background-color: var(--color-shed);
+/* Infra: SQL & Docker */
+.techDot.data-infra {
+    background-color: #336791;
 }
 
-.techDot.i18n {
-    background-color: var(--color-i18n);
+/* Utils: ShedLock & i18n */
+.techDot.utils {
+    background-color: #ffd700;
 }

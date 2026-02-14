@@ -71,4 +71,28 @@ describe('BentoProjectCard', () => {
         const tryItLink = screen.getByLabelText('projects.links.tryIt');
         expect(tryItLink).toBeInTheDocument();
     });
+
+    it('renders correctly for portfolio project', () => {
+        const portfolioProject: Project = {
+            id: 'portfolio',
+            icon: Mail,
+            color: 'blob-purple',
+            size: 'wide',
+            category: 'portfolio',
+            tech: ['react', 'vite', 'typescript'],
+            githubFrontend: 'https://github.com/test-portfolio',
+            internalLink: '/projects/portfolio',
+            status: 'online'
+        };
+
+        render(
+            <BrowserRouter>
+                <BentoProjectCard project={portfolioProject} />
+            </BrowserRouter>
+        );
+
+        expect(screen.getByText('projects.items.portfolio.title')).toBeInTheDocument();
+        expect(screen.getByText('projects.categories.portfolio')).toBeInTheDocument();
+        expect(screen.getByLabelText('projects.links.githubFrontend')).toBeInTheDocument();
+    });
 });

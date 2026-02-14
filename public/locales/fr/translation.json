@@ -58,6 +58,7 @@
         "categories": {
             "citizen_blog": "Blog Collectif Citoyen",
             "full_stack_app": "App Full Stack",
+            "portfolio": "Portfolio Open Source",
             "wellness_blog": "Blog Bien-être",
             "microservice": "Microservice"
         },
@@ -68,14 +69,54 @@
             "postgresql": "PostgreSQL",
             "css": "CSS",
             "vite": "Vite",
-            "cra": "CRA",
-            "smtp": "SMTP"
+            "javascript": "JavaScript",
+            "typescript": "TypeScript",
+            "java": "Java"
         },
         "github-readme": {
             "loading": "Chargement de la documentation...",
             "error": "Impossible de charger la documentation depuis GitHub."
         },
         "items": {
+            "portfolio": {
+                "title": "Portfolio",
+                "description": "Portfolio open-source moderne et multilingue, doté d'un design en grille Bento et d'une architecture haute performance.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture & Design",
+                        "content": "Projet conçu avec React 19 et Vite 7, privilégiant la rapidité et la modularité. L'architecture utilise un design personnalisé en grille Bento pour mettre en valeur mes réalisations techniques.",
+                        "siteStatus": {
+                            "label": "Statut du Projet"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalités",
+                        "list": [
+                            "Interface moderne de type Bento",
+                            "Internationalisation complète (i18next)",
+                            "Système robuste de changement de thème",
+                            "Implémentation rigoureuse en TypeScript",
+                            "Optimisé pour la performance et l'accessibilité",
+                            "Design dynamique et responsive"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Stack Technique",
+                        "content": "Stack moderne axée sur l'expérience développeur et la rapidité d'exécution.",
+                        "list": [
+                            "React 19 & Vite 7",
+                            "React Router 7 (SPA)",
+                            "Lucide React & Framer Motion",
+                            "i18next & CSS Modules",
+                            "Vitest & Testing Library",
+                            "TypeScript"
+                        ]
+                    },
+                    "links": {
+                        "title": "Liens du Projet"
+                    }
+                }
+            },
             "fertenergie": {
                 "title": "Ferténergie",
                 "description": "Une SPA React moderne pour un collectif citoyen dédié au développement des énergies renouvelables.",
@@ -88,7 +129,7 @@
                         }
                     },
                     "features": {
-                        "title": "Fonctionnalités Clés",
+                        "title": "Fonctionnalités",
                         "list": [
                             "Vitrine des installations photovoltaïques locales",
                             "Présentation des actions collectives citoyennes",
@@ -105,7 +146,8 @@
                             "Vite 7",
                             "React Router 7",
                             "Lucide React",
-                            "i18next"
+                            "i18next",
+                            "JavaScript"
                         ]
                     },
                     "links": {
@@ -142,7 +184,8 @@
                             "Vite 7",
                             "React Router 7",
                             "Framer Motion",
-                            "i18next"
+                            "i18next",
+                            "JavaScript"
                         ]
                     },
                     "links": {

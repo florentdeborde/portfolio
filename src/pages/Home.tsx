@@ -14,16 +14,18 @@ export const Home = () => {
 
     const backendTechs = [
         { name: 'Java 17', class: 'java' },
-        { name: 'Spring Boot 3', class: 'spring' },
-        { name: 'SQL', class: 'sql' },
-        { name: 'ShedLock', class: 'shed' },
+        { name: 'Spring Boot 3', class: 'core-spring' },
+        { name: 'SQL', class: 'data-infra' },
+        { name: 'Docker', class: 'data-infra' },
+        { name: 'ShedLock', class: 'utils' },
     ];
 
     const frontendTechs = [
-        { name: 'React 19', class: 'react' },
-        { name: 'Vite 7', class: 'vite' },
-        { name: 'JavaScript', class: 'java' },
-        { name: 'i18n', class: 'i18n' },
+        { name: 'React 19', class: 'core-react' },
+        { name: 'Vite 7', class: 'core-react' },
+        { name: 'JavaScript', class: 'ts-js' },
+        { name: 'TypeScript', class: 'ts-js' },
+        { name: 'i18n', class: 'utils' },
     ];
 
     return (

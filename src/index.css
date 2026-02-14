@@ -27,15 +27,6 @@
   --glow-color-2: rgba(59, 130, 246, 0.15);
   --cta-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 
-  /* Tech Stack Colors */
-  --color-react: #61dafb;
-  --color-java: #f89820;
-  --color-spring: #6db33f;
-  --color-vite: #646cff;
-  --color-sql: #336791;
-  --color-shed: #3178c6;
-  --color-i18n: #ffd700;
-
   /* Social Colors */
   --color-linkedin: var(--accent-primary);
   --bg-linkedin-hover: rgba(0, 119, 181, 0.15);

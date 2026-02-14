@@ -38,6 +38,7 @@ vi.mock('lucide-react', () => ({
     Send: () => <div />,
     ArrowRight: () => <div />,
     Globe: () => <div />,
+    UserRoundSearch: () => <div />,
 }));
 
 // Mock brand icons
@@ -69,5 +70,19 @@ describe('App Navigation', () => {
         fireEvent.click(aboutLinks[0]);
 
         expect(screen.getByText('about.title')).toBeInTheDocument();
+    });
+
+    it('navigates to portfolio page', () => {
+        render(<App />);
+
+        // First go to projects
+        const projectsLinks = screen.getAllByText('nav.projects');
+        fireEvent.click(projectsLinks[0]);
+
+        // Then click on portfolio card (title isPortFolio (v2) in mock translation it's projects.items.portfolio.title)
+        const portfolioCard = screen.getByText('projects.items.portfolio.title');
+        fireEvent.click(portfolioCard.closest('a')!);
+
+        expect(screen.getByText('projects.items.portfolio.title')).toBeInTheDocument();
     });
 });

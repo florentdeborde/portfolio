@@ -8,13 +8,13 @@ import { BentoCard } from './BentoCard';
 import styles from './BentoProjectCard.module.css';
 
 export interface Project {
-    id: 'mayleo-email-gateway' | 'fertenergie' | 'energeticienne' | 'saas-app';
-    category: 'microservice' | 'wellness_blog' | 'citizen_blog' | 'full_stack_app';
+    id: 'mayleo-email-gateway' | 'portfolio' | 'fertenergie' | 'energeticienne' | 'saas-app';
+    category: 'microservice' | 'portfolio' | 'wellness_blog' | 'citizen_blog' | 'full_stack_app';
     size: 'large' | 'wide' | 'full' | 'large-full' | 'normal';
     icon: React.ElementType;
     color: string;
     status?: ProjectStatusType;
-    tech: ('react' | 'spring_boot' | 'mysql' | 'postgresql' | 'css' | 'vite' | 'cra' | 'smtp')[];
+    tech: ('react' | 'spring_boot' | 'java' | 'mysql' | 'postgresql' | 'css' | 'vite' | 'javascript' | 'typescript' | 'smtp')[];
     internalLink?: string;
     github?: string;
     githubBackend?: string;

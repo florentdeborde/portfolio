@@ -58,6 +58,7 @@
         "categories": {
             "citizen_blog": "Citizen Collective Blog",
             "full_stack_app": "Full Stack App",
+            "portfolio": "Portfolio Open Source",
             "wellness_blog": "Wellness Blog",
             "microservice": "Microservice"
         },
@@ -68,14 +69,54 @@
             "postgresql": "PostgreSQL",
             "css": "CSS",
             "vite": "Vite",
-            "cra": "CRA",
-            "smtp": "SMTP"
+            "javascript": "JavaScript",
+            "typescript": "TypeScript",
+            "java": "Java"
         },
         "github-readme": {
             "loading": "Loading documentation...",
             "error": "Failed to load documentation from GitHub."
         },
         "items": {
+            "portfolio": {
+                "title": "Portfolio ",
+                "description": "Modern, multilingual open-source portfolio featuring a Bento-styled layout and high-performance engineering.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture & Design",
+                        "content": "This project is built with React 19 and Vite 7, prioritizing speed and modularity. The architecture uses a custom Bento-grid design to showcase technical projects with high visual impact.",
+                        "siteStatus": {
+                            "label": "Project Status"
+                        }
+                    },
+                    "features": {
+                        "title": "Features",
+                        "list": [
+                            "Modern Bento-styled UI/UX",
+                            "Full Internationalization (i18next)",
+                            "Robust Theme Switching system",
+                            "TypeScript strict mode implementation",
+                            "Optimized for performance and accessibility",
+                            "Vibrant and responsive design"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Tech Stack",
+                        "content": "Modern cloud-ready stack focusing on developer experience and end-user speed.",
+                        "list": [
+                            "React 19 & Vite 7",
+                            "React Router 7 (SPA)",
+                            "Lucide React & Framer Motion",
+                            "i18next & CSS Modules",
+                            "Vitest & Testing Library",
+                            "TypeScript"
+                        ]
+                    },
+                    "links": {
+                        "title": "Project Links"
+                    }
+                }
+            },
             "fertenergie": {
                 "title": "Ferténergie",
                 "description": "A modern React SPA for a citizen collective dedicated to renewable energy development.",
@@ -88,7 +129,7 @@
                         }
                     },
                     "features": {
-                        "title": "Key Features",
+                        "title": "Features",
                         "list": [
                             "Showcase of local photovoltaic installations",
                             "Presentation of citizen collective actions",
@@ -105,7 +146,8 @@
                             "Vite 7",
                             "React Router 7",
                             "Lucide React",
-                            "i18next"
+                            "i18next",
+                            "JavaScript"
                         ]
                     },
                     "links": {
@@ -115,7 +157,7 @@
             },
             "energeticienne": {
                 "title": "Isabelle Deborde Energy Healing",
-                "title-short": "Energeticienne",
+                "title-short": "Energy Healing",
                 "description": "A professional wellness blog built with React for holistic practitioners.",
                 "overview": {
                     "architecture": {
@@ -142,7 +184,8 @@
                             "Vite 7",
                             "React Router 7",
                             "Framer Motion",
-                            "i18next"
+                            "i18next",
+                            "JavaScript"
                         ]
                     },
                     "links": {

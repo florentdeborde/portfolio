@@ -6,6 +6,13 @@ export const parameters = {
     email: "florentdeborde.projects@gmail.com",
 
     githubProjects: {
+        portfolio: {
+            frontend: "https://github.com/florentdeborde/portfolio",
+            rawReadme: "https://raw.githubusercontent.com/florentdeborde/portfolio/main/README.md",
+            url: "https://florentdeborde-portfolio.vercel.app/",
+            internalLink: ROUTES.PROJECTS.PORTFOLIO,
+            status: "online" as const,
+        },
         saasApp: {
             frontend: "https://github.com/florentdeborde/lunakit",
             backend: "https://github.com/florentdeborde/altair",

@@ -52,4 +52,21 @@ describe('Projects Page', () => {
         expect(mayleoCardLink).toBeInTheDocument();
         expect(mayleoCardLink).toHaveAttribute('href', '/projects/mayleo');
     });
+
+    it('renders portfolio project card with correct link', () => {
+        render(
+            <BrowserRouter>
+                <Projects />
+            </BrowserRouter>
+        );
+
+        const titles = screen.getAllByRole('heading', { level: 2 });
+        const portfolioTitle = titles.find(t => t.textContent === 'projects.items.portfolio.title');
+
+        expect(portfolioTitle).toBeDefined();
+        const portfolioCardLink = portfolioTitle!.closest('a');
+
+        expect(portfolioCardLink).toBeInTheDocument();
+        expect(portfolioCardLink).toHaveAttribute('href', '/projects/portfolio');
+    });
 });
