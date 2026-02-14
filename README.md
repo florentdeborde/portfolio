@@ -12,6 +12,7 @@ A modern, multilingual personal portfolio built with React, Vite, and Lucide Rea
 - [🎯 Features](#-features)
 - [💻 Installation](#-installation)
 - [📂 Project Structure](#️-project-structure)
+- [🪄 Customization Guide](#-customization-guide)
 - [🚢 Deployment](#-deployment)
 - [🧱 Tech Stack](#-tech-stack)
 - [🗺️ Roadmap & Future Evolutions](#️-roadmap--future-evolutions)
@@ -55,6 +56,26 @@ src/
 ├── App.tsx       # Main application component
 └── main.tsx      # Entry point
 ```
+
+## 🪄 Customization Guide (for cloning or adapting)
+
+When duplicating this project for another developer, you’ll mainly need to update:
+
+| File / Folder                 | What to update                                                     |
+| ----------------------------- | ------------------------------------------------------------------ |
+| `/public/p-logo.svg`          | Site logo/favicon                                                  |
+| `/public/locales/`            | Translation JSON files                                             |
+| `/public/sitemap.xml`         | Update URLs for the new domain                                     |
+| `/src/assets/`                | Project images and assets                                          |
+| `/src/config/routes.ts`       | Application routing and paths                                      |
+| `/src/config/parameters.ts`   | Project data, links, and contact information                       |
+| `/src/pages/`                 | Page components and layouts                                        |
+| `/src/pages/Home.tsx`         | Name Surname & Latest Project                                      |
+| `/src/App.tsx`                | Main application component and route definitions                   |
+| `/index.html`                 | Site title and base HTML structure                                 |
+| `/package.json`               | Project name, version, and dependencies                            |
+| `/README.md`                  | Update project description and headers                             |
+| `/vercel.json`                | Deployment configuration (if using Vercel)                         |
 
 ## 🚢 Deployment
 
