@@ -47,7 +47,7 @@
     font-size: var(--font-size-base);
     line-height: 1.5;
     white-space: pre-line;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
     flex-grow: 1;
 }
 
@@ -58,6 +58,5 @@
 
     .bentoCardDesc {
         font-size: var(--font-size-base);
-        margin-bottom: 1.5rem;
     }
 }
