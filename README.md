@@ -54,10 +54,7 @@ The portfolio is built with Vite, so all variables must be prefixed with `VITE_`
 | `VITE_MAYLEO_API_KEY`     | `UUID`              | The unique identification key assigned to this portfolio.                 |
 | `VITE_MAYLEO_HMAC_SECRET` | `String (32 chars)` | The secret key used to compute the HMAC-SHA256 request signature.         |
 | `VITE_MAYLEO_URL`         | `URL`               | The base URL of your hosted Mayleo Email Gateway instance.                |
-| `VITE_SITE_URL`           | `URL`               | The public URL of this portfolio (used for the `Origin` security header). |
-
-> [!TIP]
-> Ensure that `VITE_SITE_URL` matches exactly the domain whitelisted in your Mayleo database to prevent **Domain Shield** rejections.
+| `VITE_SITE_URL`           | `URL`               | Public URL used for SEO metadata.                                         |
 
 ## 📂 Project Structure
 
