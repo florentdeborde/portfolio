@@ -8,11 +8,12 @@ interface PageLayoutProps {
     title?: string;
     subtitle?: string;
     backTo?: string;
+    backLabel?: string;
     seo?: SEOProps;
     children: React.ReactNode;
 }
 
-export const PageLayout = ({ title, subtitle, backTo, seo, children }: PageLayoutProps) => {
+export const PageLayout = ({ title, subtitle, backTo, backLabel, seo, children }: PageLayoutProps) => {
     const { t } = useTranslation();
 
     const seoTitle = seo?.title || title;
@@ -30,7 +31,7 @@ export const PageLayout = ({ title, subtitle, backTo, seo, children }: PageLayou
             {backTo && (
                 <Link to={backTo} className={styles.backLink}>
                     <ArrowLeft size={20} />
-                    {t('nav.projects')}
+                    {backLabel || t('nav.back')}
                 </Link>
             )}
             <header>

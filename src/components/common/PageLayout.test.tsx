@@ -31,7 +31,7 @@ describe('PageLayout', () => {
                 <div>Content</div>
             </PageLayout>
         );
-        const link = screen.getByRole('link', { name: /nav.projects/i });
+        const link = screen.getByRole('link', { name: /nav.back/i });
         expect(link).toBeInTheDocument();
         // Check for partial match of the class name due to CSS Modules
         expect(link.className).toMatch(/backLink/);
