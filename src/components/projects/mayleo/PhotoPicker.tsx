@@ -26,7 +26,7 @@ export const PhotoPicker = <T extends Photo>({ photos, selectedId, onSelect }: P
                     aria-label={`Select photo ${photo.alt}`}
                     aria-pressed={selectedId === photo.id}
                 >
-                    <Image src={photo.url} alt="" className={styles.photoPickerImage} />
+                    <Image src={photo.url} autoOptimize={true} alt="" className={styles.photoPickerImage} />
                     {selectedId === photo.id && (
                         <div className={styles.photoPickerCheckIcon}>
                             <Check size={16} />

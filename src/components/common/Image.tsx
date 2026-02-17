@@ -10,6 +10,7 @@ export interface ImageSource {
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     sources?: ImageSource[];
     fallbackSrc?: string; // Optional fallback image if load fails
+    autoOptimize?: boolean; // Automatically generate WebP/AVIF sources
 }
 
 export const Image = ({
@@ -18,6 +19,7 @@ export const Image = ({
     className = '',
     sources = [],
     fallbackSrc,
+    autoOptimize = false,
     loading = 'lazy',
     decoding = 'async',
     ...props
@@ -43,10 +45,24 @@ export const Image = ({
 
     const combinedClassName = `${styles.image} ${isLoaded ? styles.loaded : ''} ${className}`;
 
-    if (sources.length > 0) {
+    // Auto-generate sources if autoOptimize is enabled
+    const allSources = [...sources];
+    if (autoOptimize && typeof src === 'string' && !src.startsWith('data:') && !src.endsWith('.svg')) {
+        const lastDotIndex = src.lastIndexOf('.');
+        if (lastDotIndex !== -1) {
+            const baseSrc = src.substring(0, lastDotIndex);
+            // Higher priority first
+            allSources.unshift(
+                { srcSet: `${baseSrc}.avif`, type: 'image/avif' },
+                { srcSet: `${baseSrc}.webp`, type: 'image/webp' }
+            );
+        }
+    }
+
+    if (allSources.length > 0) {
         return (
             <picture className={styles.picture}>
-                {sources.map((source, index) => (
+                {allSources.map((source, index) => (
                     <source key={index} {...source} />
                 ))}
                 <img

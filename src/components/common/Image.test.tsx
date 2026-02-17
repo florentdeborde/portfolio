@@ -53,4 +53,16 @@ describe('Image Component', () => {
         fireEvent.load(img);
         expect(img.className).toContain('loaded');
     });
+
+    it('generates auto-optimized sources when autoOptimize is true', () => {
+        const { container } = render(<Image src="assets/photo.jpg" alt="Test" autoOptimize={true} />);
+        const sourceTags = container.querySelectorAll('source');
+
+        // Should have 2 auto-generated sources (avif, webp)
+        expect(sourceTags).toHaveLength(2);
+        expect(sourceTags[0]).toHaveAttribute('srcset', 'assets/photo.avif');
+        expect(sourceTags[0]).toHaveAttribute('type', 'image/avif');
+        expect(sourceTags[1]).toHaveAttribute('srcset', 'assets/photo.webp');
+        expect(sourceTags[1]).toHaveAttribute('type', 'image/webp');
+    });
 });

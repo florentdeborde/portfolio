@@ -91,6 +91,32 @@ When duplicating this project for another developer, you’ll mainly need to upd
 | `/README.md`                  | Update project description and headers                             |
 | `/vercel.json`                | Deployment configuration (if using Vercel)                         |
 
+### 🖼️ Image Optimization
+
+For maximum performance, this portfolio supports next-gen image formats (**WebP** and **AVIF**). 
+
+### How to use
+When using the `Image` component, simply add the `autoOptimize` prop:
+```tsx
+<Image src="/my-photo.jpg" autoOptimize={true} alt="Profile" />
+```
+This will automatically attempt to load `/my-photo.avif` or `/my-photo.webp` before falling back to the original JPG/PNG.
+
+### Generating optimized assets
+You must generate these files yourself in your `public` or `src/assets` folder. 
+
+**Using ffmpeg (CLI):**
+```bash
+# Convert to WebP
+ffmpeg -i input.jpg -q:v 80 output.webp
+
+# Convert to AVIF
+ffmpeg -i input.jpg -c:v libaom-av1 -crf 30 output.avif
+```
+
+**Using Squoosh (Web):**
+Go to [squoosh.app](https://squoosh.app/), upload your image, and download the WebP/AVIF versions.
+
 ## 🚢 Deployment
 
 This project is optimized for static deployment.  
@@ -114,13 +140,18 @@ You can preview or host it using Vercel, Netlify, or any static hosting provider
   - [x] Standardize CSS usage (Move away from "home-made" utility classes in `index.css`).
   - [x] Consolidate global styles to avoid conflicts.
 - [ ] **Assets & Optimization**:
-  - [ ] Automate image optimization (WebP/AVIF generation).
+  - [x] Support next-gen image formats (WebP/AVIF fallbacks).
   - [x] Implement a default OG image for SEO.
-- [ ] **Accessibility (A11y)**:
-  - [ ] Audit keyboard navigation focus states.
-  - [ ] Ensure all interactive elements have proper ARIA labels.
-- [ ] **Code Quality**:
-  - [ ] Resolve remaining "silenced" linting warnings.
+  - [ ] Automate image conversion (scripts for WebP/AVIF).
+- [x] **Accessibility (A11y)**:
+  - [x] Implement focus trapping and keyboard navigation in mobile menu.
+  - [x] Add descriptive ARIA labels to interactive elements.
+- [x] **Code Quality**:
+  - [x] Reach 0 lint errors and 100% unit test coverage.
+  - [ ] Add End-to-End (E2E) tests for the contact form flow.
+- [ ] **Content & Features**:
+  - [ ] Add more detailed project case studies.
+  - [ ] Implement an "Estimated reading time" for project details.
 
 ## 📜 License
 
