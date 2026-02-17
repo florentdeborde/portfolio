@@ -13,7 +13,7 @@ A modern, multilingual personal portfolio built with React, Vite, and Lucide Rea
 - [💻 Installation](#-installation)
 - [🔧 Environment Configuration](#-environment-configuration)
 - [📂 Project Structure](#️-project-structure)
-- [🪄 Customization Guide](#-customization-guide)
+- [🪄 Customization Guide](#-customization-guide-for-cloning-or-adapting)
 - [🚢 Deployment](#-deployment)
 - [🧱 Tech Stack](#-tech-stack)
 - [🗺️ Roadmap & Future Evolutions](#️-roadmap--future-evolutions)
@@ -146,7 +146,7 @@ You can preview or host it using Vercel, Netlify, or any static hosting provider
 - [x] **Accessibility (A11y)**:
   - [x] Implement focus trapping and keyboard navigation in mobile menu.
   - [x] Add descriptive ARIA labels to interactive elements.
-- [x] **Code Quality**:
+- [ ] **Code Quality**:
   - [x] Reach 0 lint errors and 100% unit test coverage.
   - [ ] Add End-to-End (E2E) tests for the contact form flow.
 - [ ] **Content & Features**:
