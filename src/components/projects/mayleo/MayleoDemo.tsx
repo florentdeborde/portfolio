@@ -26,7 +26,7 @@ type PostcardKey =
 
 const PHOTOS = PHOTO_NAMES.map((name, index) => ({
     id: index + 1,
-    url: new URL(`../../../assets/postcards/${name}`, import.meta.url).href,
+    url: `/assets/postcards/${name}`,
     path: `postcards/${name}`,
     altKey: `projects.items.mayleo-email-gateway.demo.photo.postcards.postcard-${index}` as PostcardKey
 }));
