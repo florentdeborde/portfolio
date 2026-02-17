@@ -90,16 +90,6 @@
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-/* Allow selection for inputs */
-input,
-textarea {
-  -webkit-user-select: text;
-  user-select: text;
 }
 
 /* A11y: Focus Indicators */
