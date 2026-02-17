@@ -21,6 +21,52 @@ export const Header = () => {
         setIsLangOpen(false);
     };
 
+    const menuOverlayRef = useRef<HTMLDivElement>(null);
+
+    // Focus trap for mobile menu
+    useEffect(() => {
+        if (!isMenuOpen) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsMenuOpen(false);
+                return;
+            }
+
+            if (e.key !== 'Tab') return;
+
+            const focusableElements = menuOverlayRef.current?.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+
+            if (!focusableElements || focusableElements.length === 0) return;
+
+            const firstElement = focusableElements[0] as HTMLElement;
+            const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+            if (e.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    lastElement.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    firstElement.focus();
+                    e.preventDefault();
+                }
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        // Prevent scroll on body when menu is open
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen]);
+
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             const isOutsideDesktop = langMenuRef.current && !langMenuRef.current.contains(event.target as Node);
@@ -66,14 +112,17 @@ export const Header = () => {
                             className={`${styles.langSelectWrapper} ${isLangOpen ? styles.open : ''}`}
                             onClick={() => setIsLangOpen(!isLangOpen)}
                             aria-label="Toggle Language Menu"
+                            aria-expanded={isLangOpen}
+                            aria-haspopup="true"
+                            aria-controls="desktop-lang-menu"
                         >
-                            <Languages size={18} className={styles.langIcon} />
+                            <Languages size={18} className={styles.langIcon} aria-hidden="true" />
                             <span className={styles.langText}>{i18n.resolvedLanguage?.startsWith('fr') ? 'FR' : 'EN'}</span>
-                            <ChevronDown size={14} className={`${styles.langArrow} ${isLangOpen ? styles.rotate : ''}`} />
+                            <ChevronDown size={14} className={`${styles.langArrow} ${isLangOpen ? styles.rotate : ''}`} aria-hidden="true" />
                         </button>
 
                         {isLangOpen && (
-                            <div className={styles.langDropdown}>
+                            <div className={styles.langDropdown} id="desktop-lang-menu" role="menu">
                                 <button
                                     className={`${styles.langOption} ${i18n.resolvedLanguage?.startsWith('fr') ? styles.active : ''}`}
                                     onClick={() => changeLang('fr')}
@@ -108,14 +157,21 @@ export const Header = () => {
                     className={styles.mobileMenuToggle}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Toggle Menu"
+                    aria-expanded={isMenuOpen}
+                    aria-controls="mobile-nav-overlay"
                 >
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
                 </button>
             </nav>
 
             <div
                 className={`${styles.navOverlay} ${isMenuOpen ? styles.mobileOpen : ''}`}
                 onClick={() => setIsMenuOpen(false)}
+                id="mobile-nav-overlay"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Navigation Menu"
+                ref={menuOverlayRef}
             >
                 <div className={styles.navOverlayContent}>
                     <div className={styles.navLinks} onClick={(e) => e.stopPropagation()} role="presentation">
@@ -133,14 +189,17 @@ export const Header = () => {
                                 className={`${styles.langSelectWrapper} ${isLangOpen ? styles.open : ''}`}
                                 onClick={() => setIsLangOpen(!isLangOpen)}
                                 aria-label="Toggle Language Menu"
+                                aria-expanded={isLangOpen}
+                                aria-haspopup="true"
+                                aria-controls="mobile-lang-menu"
                             >
-                                <Languages size={18} className={styles.langIcon} />
+                                <Languages size={18} className={styles.langIcon} aria-hidden="true" />
                                 <span className={styles.langText}>{i18n.resolvedLanguage?.startsWith('fr') ? 'FR' : 'EN'}</span>
-                                <ChevronDown size={14} className={`${styles.langArrow} ${isLangOpen ? styles.rotate : ''}`} />
+                                <ChevronDown size={14} className={`${styles.langArrow} ${isLangOpen ? styles.rotate : ''}`} aria-hidden="true" />
                             </button>
 
                             {isLangOpen && (
-                                <div className={`${styles.langDropdown} ${styles.mobile}`}>
+                                <div className={`${styles.langDropdown} ${styles.mobile}`} id="mobile-lang-menu" role="menu">
                                     <button
                                         className={`${styles.langOption} ${i18n.resolvedLanguage?.startsWith('fr') ? styles.active : ''}`}
                                         onClick={() => changeLang('fr')}

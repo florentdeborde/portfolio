@@ -66,6 +66,7 @@ export const BentoCard = ({ children, className = '', size = 'normal', to, href,
                 className={`${commonClasses} clickable`}
                 onMouseMove={handleMouseMove}
                 ref={cardRef as React.RefObject<HTMLAnchorElement>}
+                aria-label={headerTitle ? `${headerTitle}${description ? `: ${description}` : ''}` : undefined}
             >
                 {content}
             </Link>
@@ -81,6 +82,7 @@ export const BentoCard = ({ children, className = '', size = 'normal', to, href,
                 ref={cardRef as React.RefObject<HTMLAnchorElement>}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={headerTitle ? `${headerTitle}${description ? `: ${description}` : ''}` : undefined}
             >
                 {content}
             </a>

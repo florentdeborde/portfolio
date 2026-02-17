@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { BentoProjectCard, Project } from './BentoProjectCard';
+import { BentoProjectCard } from './BentoProjectCard';
+import { Project } from '@/types/project';
 import { BrowserRouter } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 
@@ -59,7 +60,7 @@ describe('BentoProjectCard', () => {
 
     it('renders the GitHub link button', () => {
         renderBentoProjectCard();
-        const githubLink = screen.getByLabelText('projects.links.github');
+        const githubLink = screen.getByLabelText(/projects\.links\.github/);
         expect(githubLink).toBeInTheDocument();
         expect(githubLink).toHaveAttribute('href', 'https://github.com/test');
     });
@@ -68,7 +69,7 @@ describe('BentoProjectCard', () => {
         const projectWithDemo = { ...mockProject, demoLink: '/projects/test' };
         renderBentoProjectCard(projectWithDemo);
 
-        const tryItLink = screen.getByLabelText('projects.links.tryIt');
+        const tryItLink = screen.getByLabelText(/projects\.links\.tryIt/);
         expect(tryItLink).toBeInTheDocument();
     });
 
@@ -93,6 +94,6 @@ describe('BentoProjectCard', () => {
 
         expect(screen.getByText('projects.items.portfolio.title')).toBeInTheDocument();
         expect(screen.getByText('projects.categories.portfolio')).toBeInTheDocument();
-        expect(screen.getByLabelText('projects.links.githubFrontend')).toBeInTheDocument();
+        expect(screen.getByLabelText(/projects\.links\.githubFrontend/)).toBeInTheDocument();
     });
 });

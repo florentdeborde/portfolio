@@ -45,9 +45,9 @@ export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
                                 rel="noopener noreferrer"
                                 className={styles.bentoProjectCardLink}
                                 title={t('projects.links.github')}
-                                aria-label={t('projects.links.github')}
+                                aria-label={`${t('projects.links.github')} - ${project.id}`}
                             >
-                                <GithubIcon size={18} />
+                                <GithubIcon size={18} aria-hidden="true" />
                             </a>
                         )}
                         {project.githubBackend && (
@@ -57,9 +57,9 @@ export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
                                 rel="noopener noreferrer"
                                 className={styles.bentoProjectCardLink}
                                 title={t('projects.links.githubBackend')}
-                                aria-label={t('projects.links.githubBackend')}
+                                aria-label={`${t('projects.links.githubBackend')} - ${project.id}`}
                             >
-                                <div className={styles.bentoProjectCardLinkIconStack}>
+                                <div className={styles.bentoProjectCardLinkIconStack} aria-hidden="true">
                                     <GithubIcon size={18} />
                                     <span className={styles.bentoProjectCardLinkLabel}>BE</span>
                                 </div>
@@ -72,9 +72,9 @@ export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
                                 rel="noopener noreferrer"
                                 className={styles.bentoProjectCardLink}
                                 title={t('projects.links.githubFrontend')}
-                                aria-label={t('projects.links.githubFrontend')}
+                                aria-label={`${t('projects.links.githubFrontend')} - ${project.id}`}
                             >
-                                <div className={styles.bentoProjectCardLinkIconStack}>
+                                <div className={styles.bentoProjectCardLinkIconStack} aria-hidden="true">
                                     <GithubIcon size={18} />
                                     <span className={styles.bentoProjectCardLinkLabel}>FE</span>
                                 </div>
@@ -87,9 +87,9 @@ export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
                                 rel="noopener noreferrer"
                                 className={styles.bentoProjectCardLink}
                                 title={t('projects.links.external')}
-                                aria-label={t('projects.links.external')}
+                                aria-label={`${t('projects.links.external')} - ${project.id}`}
                             >
-                                <ExternalLinkIcon size={18} />
+                                <ExternalLinkIcon size={18} aria-hidden="true" />
                             </a>
                         )}
                         {project.demoLink && (
@@ -98,10 +98,10 @@ export const BentoProjectCard = ({ project }: BentoProjectCardProps) => {
                                 state={{ activeTab: 'demo' }}
                                 className={styles.bentoProjectCardLink}
                                 title={t('projects.links.tryIt')}
-                                aria-label={t('projects.links.tryIt')}
+                                aria-label={`${t('projects.links.tryIt')} - ${project.id}`}
                                 style={{ color: 'var(--accent-primary)', borderColor: 'var(--accent-primary)', background: 'rgba(59, 130, 246, 0.1)' }}
                             >
-                                <Play size={18} fill="currentColor" />
+                                <Play size={18} fill="currentColor" aria-hidden="true" />
                             </Link>
                         )}
                     </div>
