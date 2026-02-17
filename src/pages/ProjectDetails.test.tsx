@@ -15,8 +15,12 @@ vi.mock('@/components/projects/GithubReadme', () => ({
     GithubReadme: () => <div data-testid="github-readme" />,
 }));
 
-vi.mock('@/components/projects/mayleo/MayleoDemo', () => ({
-    MayleoDemo: () => <div data-testid="mayleo-demo" />,
+// Mock DemoRegistry
+vi.mock('@/components/projects/DemoRegistry', () => ({
+    getDemoComponent: (demoId?: string) => {
+        if (demoId === 'mayleo') return <div data-testid="mayleo-demo" />;
+        return null;
+    },
 }));
 
 describe('ProjectDetails', () => {

@@ -42,6 +42,7 @@ export const parameters = {
             demoLink: `${ROUTES.PROJECTS.MAYLEO}?tab=demo`,
             status: "operational",
             hasDemo: true,
+            demoId: "mayleo",
         },
         {
             id: 'saas-app',

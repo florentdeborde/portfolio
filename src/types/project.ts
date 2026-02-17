@@ -32,5 +32,6 @@ export interface Project {
     demoLink?: string;
     rawReadme?: string;
     hasDemo?: boolean;
+    demoId?: string;
     isClickable?: boolean;
 }

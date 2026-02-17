@@ -12,7 +12,7 @@ import { GlassPanel } from '@/components/common/GlassPanel';
 import overviewStyles from '@/components/projects/ProjectOverview.module.css';
 import { Project } from '@/types/project';
 
-import { MayleoDemo } from '@/components/projects/mayleo/MayleoDemo';
+import { getDemoComponent } from '@/components/projects/DemoRegistry';
 
 export const ProjectDetails = () => {
     const { projectId } = useParams<{ projectId: string }>();
@@ -31,11 +31,6 @@ export const ProjectDetails = () => {
     if (!project) {
         return <Navigate to="/projects" replace />;
     }
-
-    // Special case for Mayleo which has a complex demo and logic
-    // We can either keep Mayleo.tsx as is but use it as a sub-component, 
-    // or refactor it into the generic structure.
-    // For now, let's use the generic structure for everything except the 'demo' tab content.
 
     const tabItems: TabItem[] = [
         {
@@ -58,12 +53,13 @@ export const ProjectDetails = () => {
         });
     }
 
-    // Dynamic Demo Injection
+    // Dynamic Demo Injection via Registry
     if (project.hasDemo) {
+        const demoComponent = getDemoComponent(project.demoId);
         tabItems.push({
             id: 'demo',
             label: t('tabs.demo'),
-            content: project.id === 'mayleo-email-gateway' ? <MayleoDemo /> : <div>Demo coming soon...</div>
+            content: demoComponent || <div>Demo coming soon...</div>
         });
     }
 
