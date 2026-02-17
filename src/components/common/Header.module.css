@@ -35,9 +35,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.navLogo:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-primary);
+@media (hover: hover) {
+    .navLogo:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-primary);
+    }
 }
 
 .navLogo img {
