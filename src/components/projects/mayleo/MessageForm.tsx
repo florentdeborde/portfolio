@@ -56,8 +56,8 @@ export const MessageForm = ({ formData, handleChange, onSubmit, isSubmitting }: 
 
             <Button
                 type="submit"
-                className={styles.button}
-                style={{ width: '100%', border: 'none', justifyContent: 'center', opacity: isSubmitting ? 0.7 : 1 }}
+                style={{ opacity: isSubmitting ? 0.7 : 1, border: 'none' }}
+                fullWidth
                 disabled={isSubmitting}
                 icon={<Send size={20} className={`${styles.buttonIcon} ${isSubmitting ? 'animate-pulse' : ''}`} />}
             >

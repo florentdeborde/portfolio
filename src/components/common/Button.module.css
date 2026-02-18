@@ -1,25 +1,31 @@
 .button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
-    padding: 1rem 2rem;
-    background: var(--cta-gradient);
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-primary);
     color: white;
     text-decoration: none;
     border: none;
-    border-radius: 999px;
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-lg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    transition: all 0.2s;
+    box-shadow: none;
     width: fit-content;
     cursor: pointer;
 }
 
-.button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-    gap: 1rem;
+.button:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: none;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .buttonIcon {
@@ -29,4 +35,9 @@
 
 .button:hover .buttonIcon {
     transform: translateX(4px);
+}
+
+.fullWidth {
+    width: 100%;
+    justify-content: center;
 }

@@ -12,9 +12,10 @@ interface ButtonProps {
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
     style?: React.CSSProperties;
+    fullWidth?: boolean;
 }
 
-export const Button = ({ children, to, href, onClick, className = '', icon, type = 'button', disabled, style }: ButtonProps) => {
+export const Button = ({ children, to, href, onClick, className = '', icon, type = 'button', disabled, style, fullWidth = false }: ButtonProps) => {
     const content = (
         <>
             {children}
@@ -22,7 +23,7 @@ export const Button = ({ children, to, href, onClick, className = '', icon, type
         </>
     );
 
-    const commonClasses = `${styles.button} ${className}`;
+    const commonClasses = `${styles.button} ${fullWidth ? styles.fullWidth : ''} ${className}`;
 
     if (to) {
         return (

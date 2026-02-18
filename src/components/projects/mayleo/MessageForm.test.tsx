@@ -27,7 +27,8 @@ describe('MessageForm', () => {
         expect(container.querySelector(`.${styles.messageForm}`)).toBeInTheDocument();
         expect(container.querySelector(`.${styles.messageFormInputField}`)).toBeInTheDocument();
         expect(container.querySelector(`.${styles.messageFormTextareaField}`)).toBeInTheDocument();
-        expect(container.querySelector(`.${styles.button}`)).toBeInTheDocument();
+
+        expect(screen.getByRole('button')).toBeInTheDocument();
     });
 
     it('calls onSubmit when button is clicked', () => {

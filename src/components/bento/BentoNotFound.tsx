@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/common/Button';
-import { Home, AlertCircle } from 'lucide-react';
+import { Home, Compass } from 'lucide-react';
 import styles from './BentoNotFound.module.css';
 
 export const BentoNotFound = () => {
@@ -9,17 +9,22 @@ export const BentoNotFound = () => {
     return (
         <div className={styles.bentoNotFoundContainer}>
             <div className={styles.bentoNotFoundCard}>
-                <div className={styles.bentoNotFoundIcon}>
-                    <AlertCircle size={32} />
+                <div className={styles.backgroundText}>404</div>
+
+                <div className={styles.contentWrapper}>
+                    <div className={styles.iconWrapper}>
+                        <Compass size={48} className={styles.compassIcon} />
+                    </div>
+
+                    <h2 className={styles.title}>{t('error404.title')}</h2>
+                    <p className={styles.desc}>{t('error404.desc')}</p>
+
+                    <div className={styles.actions}>
+                        <Button to="/" icon={<Home size={20} />} fullWidth>
+                            {t('error404.cta')}
+                        </Button>
+                    </div>
                 </div>
-
-                <h1>404</h1>
-                <p className={styles.subtitle}>{t('error404.title')}</p>
-                <p className={styles.desc}>{t('error404.desc')}</p>
-
-                <Button to="/" icon={<Home size={20} />}>
-                    {t('error404.cta')}
-                </Button>
             </div>
         </div>
     );
