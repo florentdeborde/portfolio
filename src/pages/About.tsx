@@ -13,31 +13,33 @@ export const About = () => {
             subtitle={t('about.subtitle')}
             seo={{ description: t('about.intro.desc') }}
         >
-            <Grid variant="standard">
-                {/* Personal Summary - Full Width */}
-                <BentoCard
-                    size="full"
-                    headerIcon={User}
-                    headerTitle={t('about.intro.title')}
-                    description={t('about.intro.desc')}
-                />
+            <div className="animate-fade-in-up animate-delay-200">
+                <Grid variant="standard">
+                    {/* Personal Summary - Full Width */}
+                    <BentoCard
+                        size="full"
+                        headerIcon={User}
+                        headerTitle={t('about.intro.title')}
+                        description={t('about.intro.desc')}
+                    />
 
-                {/* International Profile - Side by Side */}
-                <BentoCard
-                    size="wide"
-                    headerIcon={Globe}
-                    headerTitle={t('about.international.title')}
-                    description={t('about.international.desc')}
-                />
+                    {/* International Profile - Side by Side */}
+                    <BentoCard
+                        size="wide"
+                        headerIcon={Globe}
+                        headerTitle={t('about.international.title')}
+                        description={t('about.international.desc')}
+                    />
 
-                {/* Values & Community - Side by Side */}
-                <BentoCard
-                    size="wide"
-                    headerIcon={Heart}
-                    headerTitle={t('about.values.title')}
-                    description={t('about.values.desc')}
-                />
-            </Grid>
+                    {/* Values & Community - Side by Side */}
+                    <BentoCard
+                        size="wide"
+                        headerIcon={Heart}
+                        headerTitle={t('about.values.title')}
+                        description={t('about.values.desc')}
+                    />
+                </Grid>
+            </div>
         </PageLayout>
     );
 };

@@ -13,11 +13,13 @@ export const Projects = () => {
       title={t('projects.header.title')}
       subtitle={t('projects.header.subtitle')}
     >
-      <Grid variant="standard">
-        {projects.map(project => (
-          <BentoProjectCard key={project.id} project={project} />
-        ))}
-      </Grid>
+      <div className="animate-fade-in-up animate-delay-200">
+        <Grid variant="standard">
+          {projects.map(project => (
+            <BentoProjectCard key={project.id} project={project} />
+          ))}
+        </Grid>
+      </div>
     </PageLayout>
   );
 };

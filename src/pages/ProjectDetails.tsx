@@ -73,11 +73,13 @@ export const ProjectDetails = () => {
                 description: t(`projects.items.${project.id}.description`)
             }}
         >
-            <Tabs
-                items={tabItems}
-                activeId={activeTab}
-                onChange={handleTabChange}
-            />
+            <div className="animate-fade-in-up animate-delay-200">
+                <Tabs
+                    items={tabItems}
+                    activeId={activeTab}
+                    onChange={handleTabChange}
+                />
+            </div>
         </PageLayout>
     );
 };
