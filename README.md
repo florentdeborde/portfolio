@@ -103,19 +103,14 @@ When using the `Image` component, simply add the `autoOptimize` prop:
 This will automatically attempt to load `/my-photo.avif` or `/my-photo.webp` before falling back to the original JPG/PNG.
 
 ### Generating optimized assets
-You must generate these files yourself in your `public` or `src/assets` folder. 
+The optimization process is now automated! Every time you run `npm run build`, a script (`scripts/optimize-images.mjs`) scans your `public/assets` folder and generates the corresponding WebP and AVIF files.
 
-**Using ffmpeg (CLI):**
+You can also run it manually:
 ```bash
-# Convert to WebP
-ffmpeg -i input.jpg -q:v 80 output.webp
-
-# Convert to AVIF
-ffmpeg -i input.jpg -c:v libaom-av1 -crf 30 output.avif
+npm run optimize-images
 ```
 
-**Using Squoosh (Web):**
-Go to [squoosh.app](https://squoosh.app/), upload your image, and download the WebP/AVIF versions.
+This script is intelligent: it only generates files if they don't exist or if the source image is newer than the optimized version.
 
 ## 🚢 Deployment
 
@@ -133,16 +128,17 @@ You can preview or host it using Vercel, Netlify, or any static hosting provider
 - **React Helmet Async** — SEO & Meta tags
 - **Vitest** — Unit Testing
 - **Playwright** — End-to-End Testing
+- **Sharp** — High-performance image processing
 
 ## 🗺️ Roadmap & Future Evolutions
 
 - [x] **CSS Refactoring**:
   - [x] Standardize CSS usage (Move away from "home-made" utility classes in `index.css`).
   - [x] Consolidate global styles to avoid conflicts.
-- [ ] **Assets & Optimization**:
+- [x] **Assets & Optimization**:
   - [x] Support next-gen image formats (WebP/AVIF fallbacks).
   - [x] Implement a default OG image for SEO.
-  - [ ] Automate image conversion (scripts for WebP/AVIF).
+  - [x] Automate image conversion (scripts for WebP/AVIF).
 - [x] **Accessibility (A11y)**:
   - [x] Implement focus trapping and keyboard navigation in mobile menu.
   - [x] Add descriptive ARIA labels to interactive elements.
