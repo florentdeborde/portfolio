@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from '@/pages/Home';
 import { Projects } from '@/pages/Projects';
 import { About } from '@/pages/About';
@@ -11,19 +10,12 @@ import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { ScrollToTopButton } from '@/components/common/ScrollToTopButton';
 import { SkipLink } from '@/components/common/SkipLink';
+import { ScrollToTop } from '@/components/common/ScrollToTop';
 import { ThemeProvider } from '@/context/ThemeContext';
 
 import { ROUTES } from './config/routes';
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
 
 function App() {
   return (
