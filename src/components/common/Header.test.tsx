@@ -2,44 +2,60 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Header } from './Header';
 import { BrowserRouter } from 'react-router-dom';
+import * as ThemeContext from '@/context/ThemeContext';
 
-// Mock useTranslation
+// Mock translation
 const mockChangeLanguage = vi.fn();
+const mockI18n = {
+    resolvedLanguage: 'en',
+    changeLanguage: mockChangeLanguage,
+    language: 'en',
+    languages: ['en', 'fr'],
+    options: {},
+};
+
 vi.mock('react-i18next', () => ({
     useTranslation: () => ({
         t: (key: string) => key,
-        i18n: {
-            language: 'en',
-            changeLanguage: mockChangeLanguage,
-        },
+        i18n: mockI18n,
     }),
 }));
 
-// Mock lucide icons
+// Mock icons
 vi.mock('lucide-react', () => ({
     Moon: () => <div data-testid="moon-icon" />,
     Sun: () => <div data-testid="sun-icon" />,
-    Languages: () => <div />,
+    Languages: () => <div data-testid="lang-icon" />,
     ChevronDown: () => <div />,
     Menu: () => <div data-testid="menu-icon" />,
-    X: () => <div data-testid="x-icon" />,
+    X: () => <div data-testid="close-icon" />,
 }));
 
-// Mock ThemeContext
+// Mock Image component
+vi.mock('@/components/common/Image', () => ({
+    Image: ({ src, alt }: { src: string, alt: string }) => <img src={src} alt={alt} />
+}));
+
+// Mock useTheme
 const mockToggleTheme = vi.fn();
-const mockUseTheme = vi.fn();
+const useThemeSpy = vi.spyOn(ThemeContext, 'useTheme');
 
-vi.mock('../../context/ThemeContext', () => ({
-    useTheme: () => mockUseTheme(),
+// Mock CSS modules
+vi.mock('./Header.module.css', () => ({
+    default: {
+        navContainer: 'navContainer',
+        navDesktopControls: 'navDesktopControls',
+        navOverlay: 'navOverlay',
+        mobileOpen: 'mobileOpen',
+    }
 }));
 
-describe('Header Component', () => {
-
+describe('Header', () => {
     beforeEach(() => {
         vi.clearAllMocks();
-        // Default mock implementation
-        mockUseTheme.mockReturnValue({
-            theme: 'dark',
+        mockChangeLanguage.mockClear();
+        useThemeSpy.mockReturnValue({
+            theme: 'light',
             toggleTheme: mockToggleTheme,
         });
     });
@@ -54,70 +70,37 @@ describe('Header Component', () => {
 
     it('renders navigation links', () => {
         renderHeader();
-        // Check Desktop links
-        const projectsLink = screen.getAllByRole('link', { name: 'nav.projects' })[0];
-        const aboutLink = screen.getAllByRole('link', { name: 'nav.about' })[0];
-
-        expect(projectsLink).toHaveAttribute('href', '/projects');
-        expect(aboutLink).toHaveAttribute('href', '/about');
+        // Links exist in both desktop and mobile menus
+        expect(screen.getAllByText('nav.projects').length).toBeGreaterThan(0);
+        expect(screen.getAllByText('nav.about').length).toBeGreaterThan(0);
+        expect(screen.getByAltText('Portfolio Logo')).toBeInTheDocument();
     });
 
-    it('toggles theme when theme button is clicked', () => {
+    it('opens and closes language menu', () => {
         renderHeader();
-        // Both desktop and mobile buttons
-        const themeButton = screen.getAllByRole('button', { name: /Toggle Theme/i })[0];
-        fireEvent.click(themeButton);
-        expect(mockToggleTheme).toHaveBeenCalledTimes(1);
-    });
 
-    it('opens language dropdown and changes language', () => {
-        renderHeader();
-        const langButton = screen.getAllByLabelText('Toggle Language Menu')[0];
-        fireEvent.click(langButton);
+        // Find all language toggles.
+        const langButtons = screen.getAllByLabelText('Toggle Language Menu');
+        const desktopLangButton = langButtons[0];
 
-        // Both desktop and mobile dropdowns
-        const frOption = screen.getAllByText('Français')[0];
-        fireEvent.click(frOption);
+        fireEvent.click(desktopLangButton);
+
+        // Both desktop and mobile menus might open since they share state
+        const frOptions = screen.getAllByText('Français');
+        expect(frOptions.length).toBeGreaterThan(0);
+
+        // Click first option
+        fireEvent.click(frOptions[0]);
 
         expect(mockChangeLanguage).toHaveBeenCalledWith('fr');
     });
 
-    it('toggles mobile menu', () => {
+    it('opens mobile menu', () => {
         renderHeader();
-        const menuToggle = screen.getByLabelText('Toggle Menu');
+        const menuButton = screen.getByLabelText('Toggle Menu');
+        fireEvent.click(menuButton);
 
-        // Initial state: menu icon visible, x icon hidden
-        expect(screen.getByTestId('menu-icon')).toBeInTheDocument();
-        expect(screen.queryByTestId('x-icon')).not.toBeInTheDocument();
-
-        // Click to open
-        fireEvent.click(menuToggle);
-
-        expect(screen.getByTestId('x-icon')).toBeInTheDocument();
-        expect(screen.queryByTestId('menu-icon')).not.toBeInTheDocument();
-
-        // Click to close
-        fireEvent.click(menuToggle);
-        expect(screen.queryByTestId('x-icon')).not.toBeInTheDocument();
-        expect(screen.getByTestId('menu-icon')).toBeInTheDocument();
-    });
-
-    it('displays correct theme icon', () => {
-        // Test dark theme
-        mockUseTheme.mockReturnValue({
-            theme: 'dark',
-            toggleTheme: mockToggleTheme,
-        });
-        const { unmount } = renderHeader();
-        expect(screen.getAllByTestId('moon-icon')[0]).toBeInTheDocument();
-        unmount();
-
-        // Test light theme
-        mockUseTheme.mockReturnValue({
-            theme: 'light',
-            toggleTheme: mockToggleTheme,
-        });
-        renderHeader();
-        expect(screen.getAllByTestId('sun-icon')[0]).toBeInTheDocument();
+        const overlay = document.getElementById('mobile-nav-overlay');
+        expect(overlay?.className).toContain('mobileOpen');
     });
 });

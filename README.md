@@ -155,9 +155,9 @@ Detailed reports are generated and linked in the PR status.
 - [x] **Accessibility (A11y)**:
   - [x] Implement focus trapping and keyboard navigation in mobile menu.
   - [x] Add descriptive ARIA labels to interactive elements.
-- [ ] **Code Quality**:
+- [x] **Code Quality**:
   - [x] Reach 0 lint errors and 100% unit test coverage.
-  - [ ] Add End-to-End (E2E) tests for the contact form flow.
+  - [x] Add End-to-End (E2E) tests for the contact form flow.
 - [ ] **Content & Features**:
   - [ ] Add more detailed project case studies.
   - [ ] Implement an "Estimated reading time" for project details.

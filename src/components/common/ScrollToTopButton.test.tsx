@@ -1,50 +1,66 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { ScrollToTopButton } from './ScrollToTopButton';
-import styles from './ScrollToTopButton.module.css';
+
+// Mock window.scrollTo
+const scrollToMock = vi.fn();
+Object.defineProperty(window, 'scrollTo', { value: scrollToMock });
+
+// Mock styles
+vi.mock('./ScrollToTopButton.module.css', () => ({
+    default: {
+        scrollToTop: 'scrollToTop',
+        visible: 'visible',
+    },
+}));
 
 describe('ScrollToTopButton', () => {
     beforeEach(() => {
-        // Reset scroll position before each test
-        window.scrollY = 0;
-        // Mock scrollTo because JSDOM doesn't implement it
-        window.scrollTo = vi.fn();
+        vi.clearAllMocks();
+        scrollToMock.mockClear();
+
+        // Reset scroll position and dimensions
+        Object.defineProperty(window, 'scrollY', { value: 0, writable: true });
+        Object.defineProperty(document.documentElement, 'scrollHeight', { value: 1000, writable: true });
+        Object.defineProperty(window, 'innerHeight', { value: 800, writable: true });
+
+        // Reset fireEvent behavior if needed
     });
 
-    it('is not visible initially (does not have the "visible" class)', () => {
+    it('is initially hidden', () => {
         render(<ScrollToTopButton />);
-        const button = screen.getByRole('button');
-        expect(button).not.toHaveClass(styles.visible);
+        const button = screen.getByRole('button', { name: "Scroll to top" });
+
+        // Initially scrollY is 0, so it should not have 'visible' class
+        expect(button.className).not.toContain('visible');
     });
 
-    it('becomes visible after scrolling down past the 300px threshold', () => {
+    it('becomes visible on scroll > 300', () => {
         render(<ScrollToTopButton />);
 
-        // Simulate scrolling down 500px
-        window.scrollY = 500;
-        fireEvent.scroll(window);
+        // Simulate scroll > 300px
+        Object.defineProperty(window, 'scrollY', { value: 350 });
 
-        const button = screen.getByRole('button');
-        /**
-         * The component logic sets isVisible to true when scrolled > 300
-         */
-        expect(button).toHaveClass(styles.visible);
+        act(() => {
+            fireEvent.scroll(window);
+        });
+
+        const button = screen.getByRole('button', { name: "Scroll to top" });
+        expect(button.className).toContain('visible');
     });
 
-    it('triggers window.scrollTo to the top with smooth behavior when clicked', () => {
+    it('scrolls to top when clicked', () => {
         render(<ScrollToTopButton />);
 
-        // Simulate scroll to make it active
-        window.scrollY = 500;
-        fireEvent.scroll(window);
+        // Make it visible first so we can click it "realistically"
+        Object.defineProperty(window, 'scrollY', { value: 350 });
+        act(() => {
+            fireEvent.scroll(window);
+        });
 
-        const button = screen.getByRole('button', { name: /scroll to top/i });
+        const button = screen.getByRole('button', { name: "Scroll to top" });
         fireEvent.click(button);
 
-        // Verify the native browser API was called correctly
-        expect(window.scrollTo).toHaveBeenCalledWith({
-            top: 0,
-            behavior: 'smooth'
-        });
+        expect(scrollToMock).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
     });
 });
