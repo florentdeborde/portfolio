@@ -15,6 +15,7 @@ A modern, multilingual personal portfolio built with React, Vite, and Lucide Rea
 - [📂 Project Structure](#️-project-structure)
 - [🪄 Customization Guide](#-customization-guide-for-cloning-or-adapting)
 - [🚢 Deployment](#-deployment)
+- [🚦 Continuous Integration](#-continuous-integration)
 - [🧱 Tech Stack](#-tech-stack)
 - [🗺️ Roadmap & Future Evolutions](#️-roadmap--future-evolutions)
 - [📜 License](#-license)
@@ -117,6 +118,17 @@ This script is intelligent: it only generates files if they don't exist or if th
 This project is optimized for static deployment.  
 You can preview or host it using Vercel, Netlify, or any static hosting provider.
 
+## 🚦 Continuous Integration
+
+To ensure high quality, this project integrates **Lighthouse CI**.
+Every Pull Request triggers an automated audit checking:
+- **Performance** (Core Web Vitals)
+- **Accessibility**
+- **Best Practices**
+- **SEO**
+
+Detailed reports are generated and linked in the PR status.
+
 ## 🧱 Tech Stack
 
 - **React 19** (`react`, `react-dom`) — Core framework
@@ -129,6 +141,7 @@ You can preview or host it using Vercel, Netlify, or any static hosting provider
 - **Vitest** — Unit Testing
 - **Playwright** — End-to-End Testing
 - **Sharp** — High-performance image processing
+- **Lighthouse CI** — Automated performance monitoring
 
 ## 🗺️ Roadmap & Future Evolutions
 

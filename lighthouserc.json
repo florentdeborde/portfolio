@@ -1,0 +1,20 @@
+{
+    "ci": {
+        "collect": {
+            "startServerCommand": "npm run preview -- --port 4173",
+            "url": [
+                "http://localhost:4173/"
+            ],
+            "numberOfRuns": 3
+        },
+        "upload": {
+            "target": "temporary-public-storage"
+        },
+        "assert": {
+            "preset": "lighthouse:no-pwa",
+            "assertions": {
+                "dom-size": "off"
+            }
+        }
+    }
+}
