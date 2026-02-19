@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Info, Lightbulb, AlertCircle, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { Info, Lightbulb, AlertCircle, AlertTriangle, ShieldCheck, Clock } from 'lucide-react';
 import { Loader } from '@/components/common/Loader';
 import { GlassPanel } from '@/components/common/GlassPanel';
+import { getReadingTime } from '@/utils/readingTime';
+import { useTranslation } from 'react-i18next';
 import styles from './GithubReadme.module.css';
 
 interface AlertProps {
@@ -42,8 +44,10 @@ interface GithubReadmeProps {
 }
 
 export const GithubReadme = ({ repoRawUrl, loadingText, errorText }: GithubReadmeProps) => {
+    const { t } = useTranslation();
     const [content, setContent] = useState("");
     const [loading, setLoading] = useState(true);
+    const [readTime, setReadTime] = useState(0);
 
     useEffect(() => {
         if (!repoRawUrl) return;
@@ -62,6 +66,7 @@ export const GithubReadme = ({ repoRawUrl, loadingText, errorText }: GithubReadm
             .then(([text]) => {
                 setContent(text);
                 setLoading(false);
+                setReadTime(getReadingTime(text));
             })
             .catch(err => {
                 if (import.meta.env.DEV) console.error(err);
@@ -177,6 +182,10 @@ export const GithubReadme = ({ repoRawUrl, loadingText, errorText }: GithubReadm
 
     return (
         <GlassPanel className={styles.markdownBody}>
+            <div className={styles.metaInfo}>
+                <Clock size={16} />
+                <span>{t('nav.readingTime', { count: readTime })}</span>
+            </div>
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={components}

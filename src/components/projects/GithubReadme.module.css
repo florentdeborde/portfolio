@@ -7,6 +7,24 @@
     padding: 1.5rem;
 }
 
+.metaInfo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.metaInfo svg {
+    color: var(--accent-primary);
+}
+
+
+
 @media (min-width: 768px) {
     .markdownBody {
         padding: 2.5rem;

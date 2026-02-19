@@ -4,6 +4,7 @@
         "projects": "Projects",
         "about": "About",
         "back": "Back",
+        "readingTime": "{{count}} min read",
         "switchDark": "Switch to Dark Mode",
         "switchLight": "Switch to Light Mode"
     },

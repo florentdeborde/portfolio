@@ -160,7 +160,7 @@ Detailed reports are generated and linked in the PR status.
   - [x] Add End-to-End (E2E) tests for the contact form flow.
 - [ ] **Content & Features**:
   - [ ] Add more detailed project case studies.
-  - [ ] Implement an "Estimated reading time" for project details.
+  - [x] Implement an "Estimated reading time" for project details.
 
 ## 📜 License
 
