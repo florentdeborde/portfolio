@@ -61,14 +61,19 @@ The portfolio is built with Vite, so all variables must be prefixed with `VITE_`
 
 ```text
 src/
-├── components/   # Reusable UI components (BentoHomeCard, BentoCard)
-├── config/       # Configuration files (parameters, etc.)
-├── locales/      # Translation files (JSON)
-├── pages/        # Main application pages (Home, About, Projects)
-├── services/     # Service files (email, etc.)
-├── i18n.ts       # Internationalization configuration
-├── App.tsx       # Main application component
+├── components/   # UI Components (Common, Projects, Mayleo)
+├── config/       # Config data (parameters, routes)
+├── context/      # Context providers (Theme, Toast)
+├── pages/        # Main pages (Home, Projects, About)
+├── services/     # API services and business logic
+├── types/        # TypeScript interfaces
+├── utils/        # Utility helpers (readingTime)
+├── i18n.ts       # I18next configuration
+├── App.tsx       # Root component & Routes
 └── main.tsx      # Entry point
+
+public/
+└── locales/      # Translation JSON files (i18n)
 ```
 
 ## 🪄 Customization Guide (for cloning or adapting)

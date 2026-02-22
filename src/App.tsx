@@ -12,6 +12,7 @@ import { ScrollToTopButton } from '@/components/common/ScrollToTopButton';
 import { SkipLink } from '@/components/common/SkipLink';
 import { ScrollToTop } from '@/components/common/ScrollToTop';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { ToastProvider } from '@/context/ToastContext';
 
 import { ROUTES } from './config/routes';
 
@@ -20,27 +21,29 @@ import { ROUTES } from './config/routes';
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <div className="app-wrapper">
-          <ScrollToTop />
-          <SkipLink />
-          <div className="ambient-glow">
-            <div className="mouse-glow" />
+      <ToastProvider>
+        <BrowserRouter>
+          <div className="app-wrapper">
+            <ScrollToTop />
+            <SkipLink />
+            <div className="ambient-glow">
+              <div className="mouse-glow" />
+            </div>
+            <Header />
+            <main className="app-main" id="main-content">
+              <Routes>
+                <Route path={ROUTES.HOME} element={<Home />} />
+                <Route path={ROUTES.PROJECTS.ROOT} element={<Projects />} />
+                <Route path={ROUTES.PROJECTS.DETAILS} element={<ProjectDetails />} />
+                <Route path={ROUTES.ABOUT} element={<About />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+            <ScrollToTopButton />
           </div>
-          <Header />
-          <main className="app-main" id="main-content">
-            <Routes>
-              <Route path={ROUTES.HOME} element={<Home />} />
-              <Route path={ROUTES.PROJECTS.ROOT} element={<Projects />} />
-              <Route path={ROUTES.PROJECTS.DETAILS} element={<ProjectDetails />} />
-              <Route path={ROUTES.ABOUT} element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-          <ScrollToTopButton />
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ToastProvider>
     </ThemeProvider>
   );
 }

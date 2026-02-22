@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle, AlertCircle } from 'lucide-react';
 import styles from './Toast.module.css';
 
@@ -34,8 +35,11 @@ export const Toast = ({ message, type = 'success', onClose, duration = 5000 }: T
         </div>
     );
 };
-export const ToastContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className={styles.toastContainer}>
-        {children}
-    </div>
-);
+export const ToastContainer = ({ children }: { children: React.ReactNode }) => {
+    return createPortal(
+        <div className={styles.toastContainer}>
+            {children}
+        </div>,
+        document.body
+    );
+};

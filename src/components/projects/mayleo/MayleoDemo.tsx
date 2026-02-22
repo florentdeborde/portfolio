@@ -1,8 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PhotoPicker } from '@/components/projects/mayleo/PhotoPicker';
 import { MessageForm } from '@/components/projects/mayleo/MessageForm';
-import { Toast, ToastContainer } from '@/components/common/Toast';
+import { useToast } from '@/context/ToastContext';
 import { sendEmail } from '@/services/EmailService';
 import { GlassPanel } from '@/components/common/GlassPanel';
 import { Grid } from '@/components/common/Grid';
@@ -53,7 +53,7 @@ export const MayleoDemo = () => {
 
     const [selectedPhoto, setSelectedPhoto] = useState<Photo>(photos[0]);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+    const { showToast } = useToast();
     const [formData, setFormData] = useState<DemoFormData>({
         toEmail: "",
         message: "",
@@ -61,9 +61,7 @@ export const MayleoDemo = () => {
         langCode: "en",
     });
 
-    const showToast = useCallback((message: string, type: 'success' | 'error' = 'success') => {
-        setToast({ message, type });
-    }, []);
+    // Remove local showToast function
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -139,16 +137,6 @@ export const MayleoDemo = () => {
                         isSubmitting={isSubmitting} />
                 </GlassPanel>
             </Grid>
-
-            {toast && (
-                <ToastContainer>
-                    <Toast
-                        message={toast.message}
-                        type={toast.type}
-                        onClose={() => setToast(null)}
-                    />
-                </ToastContainer>
-            )}
         </>
     );
 };
