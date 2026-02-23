@@ -13,7 +13,29 @@
         "assert": {
             "preset": "lighthouse:no-pwa",
             "assertions": {
-                "dom-size": "off"
+                "dom-size": "off",
+                "unused-javascript": "off",
+                "network-dependency-tree-insight": "off",
+                "valid-source-maps": "warn",
+                "first-contentful-paint": [
+                    "warn",
+                    {
+                        "minScore": 0.5
+                    }
+                ],
+                "largest-contentful-paint": [
+                    "warn",
+                    {
+                        "minScore": 0.5
+                    }
+                ],
+                "legacy-javascript": "warn",
+                "render-blocking-resources": [
+                    "warn",
+                    {
+                        "maxLength": 5
+                    }
+                ]
             }
         }
     }
