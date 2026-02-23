@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Info, Lightbulb, AlertCircle, AlertTriangle, ShieldCheck, Clock } from 'lucide-react';
-import { Loader } from '@/components/common/Loader';
+import { ReadmeSkeleton } from './ReadmeSkeleton';
 import { GlassPanel } from '@/components/common/GlassPanel';
 import { getReadingTime } from '@/utils/readingTime';
 import { useTranslation } from 'react-i18next';
@@ -39,11 +39,10 @@ const Alert = ({ type, children }: AlertProps) => {
 
 interface GithubReadmeProps {
     repoRawUrl: string | undefined;
-    loadingText?: string;
     errorText?: string;
 }
 
-export const GithubReadme = ({ repoRawUrl, loadingText, errorText }: GithubReadmeProps) => {
+export const GithubReadme = ({ repoRawUrl, errorText }: GithubReadmeProps) => {
     const { t } = useTranslation();
     const [content, setContent] = useState("");
     const [loading, setLoading] = useState(true);
@@ -54,19 +53,15 @@ export const GithubReadme = ({ repoRawUrl, loadingText, errorText }: GithubReadm
 
 
 
-        const fetchPromise = fetch(repoRawUrl)
+        fetch(repoRawUrl)
             .then(res => {
                 if (!res.ok) throw new Error(errorText);
                 return res.text();
-            });
-
-        const timerPromise = new Promise(resolve => setTimeout(resolve, 1000));
-
-        Promise.all([fetchPromise, timerPromise])
-            .then(([text]) => {
+            })
+            .then((text) => {
                 setContent(text);
-                setLoading(false);
                 setReadTime(getReadingTime(text));
+                setLoading(false);
             })
             .catch(err => {
                 if (import.meta.env.DEV) console.error(err);
@@ -74,7 +69,13 @@ export const GithubReadme = ({ repoRawUrl, loadingText, errorText }: GithubReadm
             });
     }, [repoRawUrl, errorText]);
 
-    if (loading) return <Loader text={loadingText} />;
+    if (loading) {
+        return (
+            <GlassPanel className={styles.markdownBody}>
+                <ReadmeSkeleton />
+            </GlassPanel>
+        );
+    }
     if (!content) return null;
 
     const githubStyleNormalize = (text: string | null) => {

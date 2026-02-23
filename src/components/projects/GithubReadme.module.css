@@ -236,3 +236,49 @@
 .markdownBody p {
     margin-bottom: 1rem;
 }
+
+/* Skeleton loader */
+.skeletonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skeletonLine {
+    height: 1.25rem;
+    width: 100%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.03) 25%,
+            rgba(255, 255, 255, 0.08) 50%,
+            rgba(255, 255, 255, 0.03) 75%);
+    background-size: 200% 100%;
+    animation: skeletonLoading 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+.skeletonMeta {
+    width: 100px;
+    height: 1rem;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+}
+
+.skeletonTitle {
+    width: 40%;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.skeletonShort {
+    width: 60%;
+}
+
+@keyframes skeletonLoading {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}

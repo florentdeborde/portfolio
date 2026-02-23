@@ -2,6 +2,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MayleoDemo } from './MayleoDemo';
 import { sendEmail } from '@/services/EmailService';
+import { ToastProvider } from '@/context/ToastContext';
 
 // Mock focus
 vi.mock('react-i18next', () => ({
@@ -20,13 +21,21 @@ describe('MayleoDemo', () => {
     });
 
     it('renders the photo picker and message form', () => {
-        render(<MayleoDemo />);
+        render(
+            <ToastProvider>
+                <MayleoDemo />
+            </ToastProvider>
+        );
         expect(screen.getByText('projects.items.mayleo-email-gateway.demo.photo.title')).toBeInTheDocument();
         expect(screen.getByText('projects.items.mayleo-email-gateway.demo.form.title')).toBeInTheDocument();
     });
 
     it('updates form fields on change', () => {
-        render(<MayleoDemo />);
+        render(
+            <ToastProvider>
+                <MayleoDemo />
+            </ToastProvider>
+        );
         const emailInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-email') as HTMLInputElement;
         const messageInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-message') as HTMLTextAreaElement;
 
@@ -39,7 +48,11 @@ describe('MayleoDemo', () => {
 
     it('submits the form successfully', async () => {
         vi.mocked(sendEmail).mockResolvedValueOnce({});
-        render(<MayleoDemo />);
+        render(
+            <ToastProvider>
+                <MayleoDemo />
+            </ToastProvider>
+        );
 
         const emailInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-email');
         const messageInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-message');
@@ -61,7 +74,11 @@ describe('MayleoDemo', () => {
 
     it('handles submission error', async () => {
         vi.mocked(sendEmail).mockRejectedValueOnce(new Error('MAYLEO_SERVICE_UNAVAILABLE'));
-        render(<MayleoDemo />);
+        render(
+            <ToastProvider>
+                <MayleoDemo />
+            </ToastProvider>
+        );
 
         const emailInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-email');
         const messageInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-message');

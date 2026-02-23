@@ -67,12 +67,15 @@ import { ToastContainer } from './Toast';
 
 describe('ToastContainer', () => {
     it('renders children and applies container class', () => {
-        const { container } = render(
+        render(
             <ToastContainer>
                 <div>Child Content</div>
             </ToastContainer>
         );
-        expect(container.firstChild).toHaveClass(styles.toastContainer);
+
+        // When using createPortal, the content is rendered in document.body
+        const portalContainer = document.body.querySelector(`.${styles.toastContainer}`);
+        expect(portalContainer).toBeInTheDocument();
         expect(screen.getByText('Child Content')).toBeInTheDocument();
     });
 });

@@ -47,7 +47,6 @@ export const ProjectDetails = () => {
             icon: <GithubIcon size={18} />,
             content: <GithubReadme
                 repoRawUrl={project.rawReadme}
-                loadingText={t('projects.github-readme.loading')}
                 errorText={t('projects.github-readme.error')}
             />
         });
