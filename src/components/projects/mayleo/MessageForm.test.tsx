@@ -21,7 +21,7 @@ describe('MessageForm', () => {
         const { container } = render(<MessageForm formData={mockFormData} handleChange={() => { }} onSubmit={() => { }} isSubmitting={false} />);
 
         expect(screen.getByPlaceholderText('projects.items.mayleo-email-gateway.demo.form.placeholder-email')).toBeInTheDocument();
-        expect(screen.getByPlaceholderText('projects.items.mayleo-email-gateway.demo.form.placeholder-message')).toBeInTheDocument();
+        expect(screen.getByRole('textbox', { name: 'projects.items.mayleo-email-gateway.demo.form.label-message' })).toBeInTheDocument();
 
         // Verify CSS module classes
         expect(container.querySelector(`.${styles.messageForm}`)).toBeInTheDocument();

@@ -250,10 +250,8 @@
                     "form": {
                         "title": "2. Write your message",
                         "label-email": "Recipient Email",
-                        "email-disclaimer": "* Deliverability to certain addresses like Microsoft is restricted.",
                         "placeholder-email": "recipient@example.com",
                         "label-message": "Your Message",
-                        "placeholder-message": "Write something memorable...",
                         "btn-send": "Send Postcard",
                         "btn-sending": "Sending...",
                         "success": "Email request registered successfully!",
@@ -265,6 +263,7 @@
                             "MAYLEO_SERVICE_UNAVAILABLE": "Mayleo Gateway is currently unavailable.",
                             "MAYLEO_UNKNOWN_ERROR": "An unknown error occurred."
                         },
+                        "default-message": "Hello!\n\nThis is a test message sent from the portfolio demo to illustrate how the Mayleo Email Gateway API works.\n\nHave a great day!",
                         "default-subject": "A postcard from Mayleo",
                         "footer-note": "Sending via Mayleo Email Gateway API"
                     }

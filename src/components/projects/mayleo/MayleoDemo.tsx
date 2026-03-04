@@ -56,10 +56,18 @@ export const MayleoDemo = () => {
     const { showToast } = useToast();
     const [formData, setFormData] = useState<DemoFormData>({
         toEmail: "",
-        message: "",
+        message: t('projects.items.mayleo-email-gateway.demo.form.default-message'),
         subject: t('projects.items.mayleo-email-gateway.demo.form.default-subject'),
         langCode: "en",
     });
+
+    React.useEffect(() => {
+        setFormData(prev => ({
+            ...prev,
+            message: t('projects.items.mayleo-email-gateway.demo.form.default-message'),
+            subject: t('projects.items.mayleo-email-gateway.demo.form.default-subject')
+        }));
+    }, [t]);
 
     // Remove local showToast function
 
@@ -82,7 +90,7 @@ export const MayleoDemo = () => {
                 imagePath: selectedPhoto.path
             });
             showToast(t('projects.items.mayleo-email-gateway.demo.form.success'), 'success');
-            setFormData(prev => ({ ...prev, toEmail: "", message: "" }));
+            setFormData(prev => ({ ...prev, toEmail: "", message: t('projects.items.mayleo-email-gateway.demo.form.default-message') }));
         } catch (error) {
             if (import.meta.env.DEV) {
                 console.error(error);

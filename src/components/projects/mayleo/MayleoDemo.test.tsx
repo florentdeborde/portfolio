@@ -4,10 +4,11 @@ import { MayleoDemo } from './MayleoDemo';
 import { sendEmail } from '@/services/EmailService';
 import { ToastProvider } from '@/context/ToastContext';
 
-// Mock focus
+// Mock translation
+const mockT = (key: string) => key;
 vi.mock('react-i18next', () => ({
     useTranslation: () => ({
-        t: (key: string) => key,
+        t: mockT,
     }),
 }));
 
@@ -40,10 +41,9 @@ describe('MayleoDemo', () => {
         const messageInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-message') as HTMLTextAreaElement;
 
         fireEvent.change(emailInput, { target: { value: 'test@example.com', name: 'toEmail' } });
-        fireEvent.change(messageInput, { target: { value: 'Hello test', name: 'message' } });
 
         expect(emailInput.value).toBe('test@example.com');
-        expect(messageInput.value).toBe('Hello test');
+        expect(messageInput.value).toBe('projects.items.mayleo-email-gateway.demo.form.default-message');
     });
 
     it('submits the form successfully', async () => {
@@ -55,17 +55,15 @@ describe('MayleoDemo', () => {
         );
 
         const emailInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-email');
-        const messageInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-message');
         const submitButton = screen.getByRole('button', { name: 'projects.items.mayleo-email-gateway.demo.form.btn-send' });
 
         fireEvent.change(emailInput, { target: { value: 'test@example.com', name: 'toEmail' } });
-        fireEvent.change(messageInput, { target: { value: 'Test message', name: 'message' } });
         fireEvent.click(submitButton);
 
         await waitFor(() => {
             expect(sendEmail).toHaveBeenCalledWith(expect.objectContaining({
                 toEmail: 'test@example.com',
-                message: 'Test message'
+                message: 'projects.items.mayleo-email-gateway.demo.form.default-message'
             }));
         });
 
@@ -81,11 +79,9 @@ describe('MayleoDemo', () => {
         );
 
         const emailInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-email');
-        const messageInput = screen.getByLabelText('projects.items.mayleo-email-gateway.demo.form.label-message');
         const submitButton = screen.getByRole('button', { name: 'projects.items.mayleo-email-gateway.demo.form.btn-send' });
 
         fireEvent.change(emailInput, { target: { value: 'test@example.com', name: 'toEmail' } });
-        fireEvent.change(messageInput, { target: { value: 'Test message', name: 'message' } });
         fireEvent.click(submitButton);
 
         await waitFor(() => {

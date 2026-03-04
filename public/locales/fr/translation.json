@@ -250,10 +250,8 @@
                     "form": {
                         "title": "2. Rédigez votre message",
                         "label-email": "Email du destinataire",
-                        "email-disclaimer": "* La délivrabilité vers certaines adresses comme Microsoft est restreinte.",
                         "placeholder-email": "destinataire@exemple.com",
                         "label-message": "Votre message",
-                        "placeholder-message": "Écrivez quelque chose de mémorable...",
                         "btn-send": "Envoyer la Carte",
                         "btn-sending": "Envoi en cours...",
                         "success": "Demande d'envoi enregistrée avec succès !",
@@ -265,6 +263,7 @@
                             "MAYLEO_SERVICE_UNAVAILABLE": "La passerelle Mayleo est actuellement indisponible.",
                             "MAYLEO_UNKNOWN_ERROR": "Une erreur inconnue est survenue."
                         },
+                        "default-message": "Bonjour !\n\nCeci est un message de test envoyé depuis la démo du portfolio pour illustrer le fonctionnement de l'API Mayleo Email Gateway.\n\nBonne journée !",
                         "default-subject": "Une carte postale de Mayleo",
                         "footer-note": "Expédition via l'API Mayleo Email Gateway"
                     }

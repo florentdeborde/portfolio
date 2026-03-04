@@ -30,7 +30,7 @@
 
 .messageFormTextareaField {
     resize: vertical;
-    min-height: 120px;
+    min-height: 180px;
 }
 
 .messageFormFooterNote {

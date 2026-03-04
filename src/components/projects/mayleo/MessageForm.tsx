@@ -33,9 +33,6 @@ export const MessageForm = ({ formData, handleChange, onSubmit, isSubmitting }: 
                     required
                     disabled={isSubmitting}
                 />
-                <p className={styles.disclaimer}>
-                    {t('projects.items.mayleo-email-gateway.demo.form.email-disclaimer')}
-                </p>
             </div>
 
             <div className={styles.messageFormInputGroup}>
@@ -47,9 +44,9 @@ export const MessageForm = ({ formData, handleChange, onSubmit, isSubmitting }: 
                         value={formData.message}
                         onChange={handleChange}
                         className={styles.messageFormTextareaField}
-                        placeholder={t('projects.items.mayleo-email-gateway.demo.form.placeholder-message')}
                         required
                         disabled={isSubmitting}
+                        readOnly
                     />
                 </article>
             </div>
