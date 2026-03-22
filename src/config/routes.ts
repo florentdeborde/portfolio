@@ -8,5 +8,6 @@ export const ROUTES = {
         FERTENERGIE: '/projects/fertenergie',
         ENERGETICIENNE: '/projects/energeticienne',
         PORTFOLIO: '/projects/portfolio',
+        ALTAIR: '/projects/altair',
     },
 } as const;

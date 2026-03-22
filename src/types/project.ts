@@ -31,6 +31,8 @@ export interface Project {
     external?: string;
     demoLink?: string;
     rawReadme?: string;
+    rawReadmeFrontend?: string;
+    rawReadmeBackend?: string;
     hasDemo?: boolean;
     demoId?: string;
     isClickable?: boolean;

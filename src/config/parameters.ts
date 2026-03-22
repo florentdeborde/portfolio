@@ -45,17 +45,20 @@ export const parameters = {
             demoId: "mayleo",
         },
         {
-            id: 'saas-app',
+            id: 'altair',
             icon: Shield,
             color: 'blob-blue',
             size: 'full',
             category: 'full_stack_app',
             tech: ['spring_boot', 'java', 'postgresql', 'react', 'vite', 'javascript'],
-            githubFrontend: "https://github.com/florentdeborde/lunakit",
-            githubBackend: "https://github.com/florentdeborde/altair",
-            internalLink: "/projects/saas-app",
+            rawReadmeBackend: "https://gist.githubusercontent.com/florentdeborde/571d762ede136b6348de6a978647cc34/raw/d367aa7afc855914ed8f325ff7df1ea0af64e8a7/altair-backend-readme.md",
+            rawReadmeFrontend: "https://gist.githubusercontent.com/florentdeborde/b08bc42a70e7c06b1bea25089aa7b748/raw/522ae1eadd9b6de7ef19ca04361d325b24a2e668/altair-frontend-readme.md",
+            internalLink: ROUTES.PROJECTS.ALTAIR,
+            demoLink: `${ROUTES.PROJECTS.ALTAIR}?tab=demo`,
             status: "coming-soon",
-            isClickable: false
+            hasDemo: true,
+            demoId: "altair",
+            isClickable: true
         },
         {
             id: 'portfolio',

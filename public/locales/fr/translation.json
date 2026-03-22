@@ -194,9 +194,48 @@
                     }
                 }
             },
-            "saas-app": {
-                "title": "Plateforme SaaS",
-                "description": "Une application full-stack robuste avec un frontend React et un backend Spring Boot."
+            "altair": {
+                "title": "Altair",
+                "description": "Un kit de démarrage full-stack de qualité professionnelle. Il combine un backend Java Spring Boot 3 performant avec un tableau de bord SaaS moderne sous React 19, conçu pour la scalabilité, la sécurité et le développement rapide.",
+                "overview": {
+                    "architecture": {
+                        "title": "Architecture Full-Stack",
+                        "content": "Altair repose sur une architecture découplée : une API REST Spring Boot modulaire pour la logique métier et une application monopage (SPA) réactive sous React. Il intègre un système CRUD abstrait robuste qui réduit le code redondant tout en respectant des normes de sécurité strictes.",
+                        "siteStatus": {
+                            "label": "Démo"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalités Clés",
+                        "list": [
+                            "Sécurité JWT Avancée (Cookies HTTP-only & Révocation de tokens)",
+                            "Gestion fine du RBAC (Profils & Permissions dynamiques)",
+                            "Abstraction CRUD Générique (Controllers, Services, Repositories)",
+                            "Dashboard SaaS avec barre latérale persistante & Mode Sombre",
+                            "Audit automatique & Hooks de cycle de vie DTO (onCreate/onUpdate)",
+                            "Support complet de l'internationalisation (i18n) FR/EN",
+                            "Documentation automatisée avec Swagger/OpenAPI"
+                        ]
+                    },
+                    "techStack": {
+                        "title": "Stack Technique",
+                        "content": "Une pile technologique moderne et fiable, choisie pour ses performances et sa robustesse en production.",
+                        "list": [
+                            "React 19 & Vite 7.3.1",
+                            "Spring Boot 3.x (Java 17+)",
+                            "PostgreSQL & Spring Data JPA",
+                            "React Router 7 & Framer Motion",
+                            "MapStruct & Lombok",
+                            "Testcontainers & Vitest (Prêt pour le TDD)"
+                        ]
+                    },
+                    "links": {
+                        "title": "Liens du Projet"
+                    }
+                },
+                "demo": {
+                    "title": "Démo à venir..."
+                }
             },
             "mayleo-email-gateway": {
                 "title": "Mayleo Email Gateway",
@@ -263,7 +302,7 @@
                             "MAYLEO_SERVICE_UNAVAILABLE": "La passerelle Mayleo est actuellement indisponible.",
                             "MAYLEO_UNKNOWN_ERROR": "Une erreur inconnue est survenue."
                         },
-                        "default-message": "Bonjour !\n\nCeci est un message de test envoyé depuis la démo du portfolio pour illustrer le fonctionnement de l'API Mayleo Email Gateway.\n\nBonne journée !",
+                        "default-message": "Bonjour !\nCeci est un message de test pour illustrer le fonctionnement de l'API Mayleo Email Gateway.\nBonne journée !",
                         "default-subject": "Une carte postale de Mayleo",
                         "footer-note": "Expédition via l'API Mayleo Email Gateway"
                     }
@@ -298,7 +337,9 @@
         "cta": "Retour à l'accueil"
     },
     "tabs": {
-        "readme": "ReadMe",
+        "github": "Github",
+        "githubFront": "Frontend",
+        "githubBack": "Backend",
         "demo": "Démo",
         "overview": "Aperçu"
     },

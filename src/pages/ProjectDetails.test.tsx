@@ -63,7 +63,7 @@ describe('ProjectDetails', () => {
         expect(screen.getByTestId('project-overview-grid')).toBeInTheDocument();
 
         // Click on GitHub tab
-        fireEvent.click(screen.getByText('GitHub'));
+        fireEvent.click(screen.getByText('tabs.github'));
         expect(screen.getByTestId('github-readme')).toBeInTheDocument();
 
         // Click on Demo tab

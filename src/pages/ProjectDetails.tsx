@@ -43,10 +43,34 @@ export const ProjectDetails = () => {
     if (project.rawReadme) {
         tabItems.push({
             id: 'github',
-            label: 'GitHub',
+            label: t('tabs.github'),
             icon: <GithubIcon size={18} />,
             content: <GithubReadme
                 repoRawUrl={project.rawReadme}
+                errorText={t('projects.github-readme.error')}
+            />
+        });
+    }
+
+    if (project.rawReadmeFrontend) {
+        tabItems.push({
+            id: 'readme-front',
+            label: t('tabs.githubFront'),
+            icon: <GithubIcon size={18} />,
+            content: <GithubReadme
+                repoRawUrl={project.rawReadmeFrontend}
+                errorText={t('projects.github-readme.error')}
+            />
+        });
+    }
+
+    if (project.rawReadmeBackend) {
+        tabItems.push({
+            id: 'readme-back',
+            label: t('tabs.githubBack'),
+            icon: <GithubIcon size={18} />,
+            content: <GithubReadme
+                repoRawUrl={project.rawReadmeBackend}
                 errorText={t('projects.github-readme.error')}
             />
         });
