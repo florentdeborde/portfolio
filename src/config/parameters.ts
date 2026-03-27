@@ -55,7 +55,8 @@ export const parameters = {
             rawReadmeFrontend: "https://gist.githubusercontent.com/florentdeborde/b08bc42a70e7c06b1bea25089aa7b748/raw/522ae1eadd9b6de7ef19ca04361d325b24a2e668",
             internalLink: ROUTES.PROJECTS.ALTAIR,
             demoLink: `${ROUTES.PROJECTS.ALTAIR}?tab=demo`,
-            status: "coming-soon",
+            external: "https://altair.florentdeborde.fr/",
+            status: "operational",
             hasDemo: true,
             demoId: "altair",
             isClickable: true
