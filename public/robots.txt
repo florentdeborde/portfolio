@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-# Sitemap: https://florentdeborde-portfolio.vercel.app/sitemap.xml
+Sitemap: https://florentdeborde.fr/sitemap.xml
