@@ -1,4 +1,48 @@
+/* =========================================
+   Theme Styles
+   ========================================= */
+
+/* Default root state (Dark) */
 :root {
+  /* Force light and dark mode */
+  color-scheme: only light dark;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  /* Matches --bg-primary dark value */
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+html.light,
+html.light body {
+  /* Matches --bg-primary light value */
+  background-color: #fafafa;
+  color-scheme: light;
+}
+
+html.dark,
+html.dark body {
+  /* Matches --bg-primary dark value */
+  background-color: #0a0a0a;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+
   /* =========================================
      1. Color Palette & Theme Variables
      ========================================= */
@@ -63,7 +107,7 @@
   --container-padding-top: 4rem;
 }
 
-[data-theme='light'] {
+html.light {
   --bg-primary: #fafafa;
   --bg-secondary: #ffffff;
 
@@ -108,18 +152,6 @@ a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
-}
-
-html {
-  scrollbar-gutter: stable;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
 }
 
 /* =========================================

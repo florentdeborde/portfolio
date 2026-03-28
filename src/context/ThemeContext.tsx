@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode, useLayoutEffect } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -14,9 +14,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         return (localStorage.getItem('theme') as Theme) || 'dark';
     });
 
-    // Sync theme with document and localStorage
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
+    useLayoutEffect(() => {
+        const root = window.document.documentElement;
+        const color = theme === 'dark' ? '#0a0a0a' : '#fafafa';
+
+        root.classList.remove('light', 'dark');
+        root.classList.add(theme);
+
+        const metaTheme = document.getElementById('theme-meta');
+        if (metaTheme) {
+            metaTheme.setAttribute('content', color);
+        }
         localStorage.setItem('theme', theme);
     }, [theme]);
 
