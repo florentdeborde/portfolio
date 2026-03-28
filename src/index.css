@@ -1,47 +1,5 @@
-/* =========================================
-   Theme Styles
-   ========================================= */
-
-/* Default root state (Dark) */
 :root {
-  /* Force light and dark mode */
   color-scheme: only light dark;
-}
-
-html {
-  scrollbar-gutter: stable;
-}
-
-html,
-body {
-  /* Matches --bg-primary dark value */
-  background-color: #0a0a0a;
-  color: #ffffff;
-}
-
-html.light,
-html.light body {
-  /* Matches --bg-primary light value */
-  background-color: #fafafa;
-  color-scheme: light;
-}
-
-html.dark,
-html.dark body {
-  /* Matches --bg-primary dark value */
-  background-color: #0a0a0a;
-  color-scheme: dark;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-}
-
-:root {
 
   /* =========================================
      1. Color Palette & Theme Variables
@@ -130,6 +88,23 @@ html.light {
 
   --toggle-thumb-bg: #ffffff;
   --toggle-icon-color: var(--orange-primary);
+}
+
+html {
+  scrollbar-gutter: stable;
+  background-color: #0a0a0a;
+}
+
+html.light {
+  background-color: #fafafa;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: transparent;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* =========================================
