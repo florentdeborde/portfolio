@@ -22,6 +22,7 @@ export const Image = ({
     autoOptimize = false,
     loading = 'lazy',
     decoding = 'async',
+    fetchPriority = 'auto',
     ...props
 }: ImageProps) => {
     const [imgSrc, setImgSrc] = useState(src);
@@ -88,6 +89,7 @@ export const Image = ({
             decoding={decoding}
             onError={handleError}
             onLoad={handleLoad}
+            fetchPriority={fetchPriority}
             {...props}
         />
     );
