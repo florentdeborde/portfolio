@@ -93,7 +93,7 @@ export const Header = () => {
             <nav className={styles.navContainer}>
                 <div className={styles.navBrand}>
                     <Link to={ROUTES.HOME} className={styles.navLogo}>
-                        <PortfolioImage src="/p-logo.svg" alt="Portfolio Logo" />
+                        <PortfolioImage src="/p-logo.svg" alt="Portfolio Logo" loading="eager" fetchPriority="high" />
                     </Link>
                 </div>
 
